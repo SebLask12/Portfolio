@@ -1,0 +1,13 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Landing page for natours",
+  "main": "index.js",
+  "scripts": {
+
+  },
+  "author": "Sebastian L",
+  "license": "ISC",
+  "devDependencies": {
+  }
+}
