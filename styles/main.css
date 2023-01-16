@@ -98,7 +98,7 @@ body {
   font-weight: 400;
   /*font-size: 16px;*/
   line-height: 1.7;
-  color: #eee;
+  color: #777;
 }
 
 .heading-primary {
@@ -210,6 +210,10 @@ body {
 
 .u-margin-top-huge {
   margin-top: 10rem !important;
+}
+
+.u-color-white {
+  color: aliceblue;
 }
 
 .bg-video {
@@ -524,7 +528,7 @@ body {
   transform: scale(0.95);
 }
 
-.feature-box {
+.app-box {
   background-color: rgba(255, 255, 255, 0.8);
   font-size: 1.5rem;
   padding: 2.5rem;
@@ -534,11 +538,11 @@ body {
   transition: transform 0.3s;
 }
 @media only screen and (max-width: 56.25em) {
-  .feature-box {
+  .app-box {
     padding: 2rem;
   }
 }
-.feature-box__icon {
+.app-box__icon {
   font-size: 6rem;
   margin-bottom: 0.5rem;
   display: inline-block;
@@ -547,11 +551,11 @@ body {
   color: transparent;
 }
 @media only screen and (max-width: 56.25em) {
-  .feature-box__icon {
+  .app-box__icon {
     margin-bottom: 0;
   }
 }
-.feature-box:hover {
+.app-box:hover {
   transform: translateY(-1.5rem) scale(1.03);
 }
 
@@ -974,7 +978,8 @@ body {
   left: 4rem;
 }
 .header__logo {
-  height: 3.5rem;
+  height: 8rem;
+  border-radius: 50%;
 }
 .header__text-box {
   position: absolute;
@@ -1125,6 +1130,27 @@ body {
   transform: rotate(-135deg);
 }
 
+.head-calc {
+  height: 20vh;
+  background-image: linear-gradient(to right bottom, rgba(118, 111, 213, 0.8), rgba(38, 17, 128, 0.8)), url(../img/hero-small.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+}
+.head-calc__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.calculator {
+  width: 50vw;
+  height: 50vh;
+  background-color: rgba(38, 17, 128, 0.8);
+}
+
 .section-about {
   background-color: #f7f7f7;
   padding: 25rem 0;
@@ -1136,18 +1162,18 @@ body {
   }
 }
 
-.section-features {
+.section-apss {
   padding: 20rem 0;
   background-image: linear-gradient(to right bottom, rgba(118, 111, 213, 0.8), rgba(38, 17, 128, 0.8)), url(../img/nat-4.jpg);
   background-size: cover;
   transform: skewY(-7deg);
   margin-top: -10rem;
 }
-.section-features > * {
+.section-apss > * {
   transform: skewY(7deg);
 }
 @media only screen and (max-width: 56.25em) {
-  .section-features {
+  .section-apss {
     padding: 10rem 0;
   }
 }
