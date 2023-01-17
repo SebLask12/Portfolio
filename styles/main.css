@@ -1136,6 +1136,7 @@ body {
   background-size: cover;
   background-position: top;
   position: relative;
+  border-radius: 10%;
 }
 .head-calc__text-box {
   position: absolute;
@@ -1146,9 +1147,105 @@ body {
 }
 
 .calculator {
-  width: 50vw;
-  height: 50vh;
-  background-color: rgba(38, 17, 128, 0.8);
+  width: 80vw;
+  height: 80vh;
+  overflow: hidden;
+  margin: 5rem auto 0 auto;
+}
+.calculator__display {
+  display: inline-block;
+  background-color: aquamarine;
+  width: 100%;
+}
+.calculator__display--text {
+  font-weight: 200;
+  font-size: 8rem;
+  color: black;
+  text-align: right;
+}
+
+.calcbuttons {
+  background-color: #f7f7f7;
+  font-size: 5rem;
+  display: grid;
+  /*grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(7, 5vw);*/
+  grid-template-areas: " turnx element square divide" " seven eight nine multiple" " four five six m" " one two three p" " t z d e";
+  grid-gap: 1.5rem;
+  padding: 1.5rem;
+}
+.calcbuttons > div {
+  cursor: pointer;
+  text-align: center;
+}
+.calcbuttons > div:hover {
+  background-color: #eee;
+}
+.calcbuttons__item--1 {
+  grid-area: one;
+}
+.calcbuttons__item--2 {
+  grid-area: two;
+}
+.calcbuttons__item--3 {
+  grid-area: three;
+}
+.calcbuttons__item--4 {
+  grid-area: four;
+}
+.calcbuttons__item--5 {
+  grid-area: five;
+}
+.calcbuttons__item--6 {
+  grid-area: six;
+}
+.calcbuttons__item--7 {
+  grid-area: seven;
+}
+.calcbuttons__item--8 {
+  grid-area: eight;
+}
+.calcbuttons__item--9 {
+  grid-area: nine;
+}
+.calcbuttons__item--0 {
+  grid-area: z;
+}
+.calcbuttons__item--plus {
+  grid-area: p;
+}
+.calcbuttons__item--minus {
+  grid-area: m;
+}
+.calcbuttons__item--turn {
+  grid-area: t;
+}
+.calcbuttons__item--equal {
+  grid-area: e;
+}
+.calcbuttons__item--dot {
+  grid-area: d;
+}
+.calcbuttons__item--multiple {
+  grid-area: multiple;
+}
+.calcbuttons__item--square {
+  grid-area: square;
+}
+.calcbuttons__item--element {
+  grid-area: element;
+}
+.calcbuttons__item--turnx {
+  grid-area: turnx;
+}
+.calcbuttons__item--divide {
+  grid-area: divide;
+}
+.calcbuttons__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .section-about {
