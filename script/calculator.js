@@ -1,62 +1,47 @@
-//Calculator App
-const display = document.getElementById('display');
-let a = "";
-let b = "";
-let operator;
-
-function updateDisplay(content) {
-    display.innerHTML = content;
-}
-
-function addContent(element) {
-    if ((element == '+' || element == '-' || element == '/' || element == '*') && operator == undefined) {
-        b = a;
-        a = 0;
-        operator = element;
-    }
-    else if ((Number(a) == 0 && Number(element) > 0 && operator != undefined) || (Number(a) == 0 && Number(element) > 0 && operator == undefined)) a = element;
-    else if (Number(element) > 0 && Number(element) <= 9) a += element;
-    else if (element == '.' && a.includes('.') == false) a += element;
-       
-    updateDisplay(a);
-}
-
-function equal() {
-    if (operator == '+') {
-        updateDisplay(Number(b) + Number(a));
-        a = 0;
-        b = 0;
-        operator = undefined;
-    }
-    else if (operator == '-') {
-        updateDisplay(Number(b) - Number(a));
-        a = 0;
-        b = 0;
-        operator = undefined;
-    }
-    else if (operator == '/') {
-        updateDisplay(Number(b) / Number(a));
-        a = 0;
-        b = 0;
-        operator = undefined;
-    }
-    else if (operator == '*') {
-        updateDisplay(Number(b) * Number(a));
-        a = 0;
-        b = 0;
-        operator = undefined;
-    }
-}
-
-function CE() {
-    a = 0; 
-    b = 0;
-    operator = undefined;
-    updateDisplay(a);
-}
-
-function root() {
-    a = Math.sqrt(a);
-    updateDisplay(a);
-}
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scss/main.css" />
+    <title>Calculator</title>
+</head>
+<body>
+    <!-- <div class="head-calc">
+        <div class="head-calc__text-box ">
+            <h3 class="heading-tertiary u-margin-top-small u-color-white">Calculator</h3>
+        </div>
+    </div> -->
+    <main>
+        <div class="calculator">
+            <div class="calculator__display">
+                <div class="calculator__display--text" id="display">0</div>
+            </div>
+            <div class="calcbuttons">
+                <div class="calcbuttons__item--1" onclick="addContent('1')">1</div>
+                <div class="calcbuttons__item--2" onclick="addContent('2')">2</div>
+                <div class="calcbuttons__item--3" onclick="addContent('3')">3</div>
+                <div class="calcbuttons__item--4" onclick="addContent('4')">4</div>
+                <div class="calcbuttons__item--5" onclick="addContent('5')">5</div>
+                <div class="calcbuttons__item--6" onclick="addContent('6')">6</div>
+                <div class="calcbuttons__item--7" onclick="addContent('7')">7</div>
+                <div class="calcbuttons__item--8" onclick="addContent('8')">8</div>
+                <div class="calcbuttons__item--9" onclick="addContent('9')">9</div>
+                <div class="calcbuttons__item--0" onclick="addContent('0')">0</div>
+                <div class="calcbuttons__item--plus"onclick="addContent('+')">+</div>
+                <div class="calcbuttons__item--minus"onclick="addContent('-')">&minus;</div>
+                <div class="calcbuttons__item--turn" onclick="turn()">&#8723;</div>
+                <div id="equal" class="calcbuttons__item--equal" onclick="equal()">=</div>
+                <div class="calcbuttons__item--dot"onclick="addContent('.')">.</div>
+                <div class="calcbuttons__item--multiple"onclick="addContent('*')">&lowast;</div>
+                <div class="calcbuttons__item--square"onclick="root()">&radic;x</div>
+                <div class="calcbuttons__item--element"onclick="pow()">x<sup>2</sup></div>
+                <div class="calcbuttons__item--turnx"onclick="CE()">CE</div>
+                <div class="calcbuttons__item--divide" onclick="addContent('/')">/</div>
+            </div>
+        </div>
+    </main>
+    <script src="script/calculator.js"></script>
+</body>
+</html>
