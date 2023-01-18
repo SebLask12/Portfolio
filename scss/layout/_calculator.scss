@@ -1,10 +1,10 @@
 .head-calc {
     height: 20vh;
-    background-image: linear-gradient(
-        to right bottom,
-        rgba($color-primary-light, 0.8),
-        rgba($color-primary-dark, 0.8)),
-    url(../img/hero-small.jpg);
+    // background-image: linear-gradient(
+    //     to right bottom,
+    //     rgba($color-primary-light, 0.8),
+    //     rgba($color-primary-dark, 0.8)),
+    // url(../img/hero-small.jpg);
     background-size: cover;
     background-position: top;
     position: relative;
@@ -22,9 +22,9 @@
 
 .calculator {
     width: 80vw;
-    height: 80vh;
+    // height: 80vh;
     // background-color: rgba($color-primary-dark, 0.8);
-    overflow: hidden;
+    // overflow: hidden;
     margin: 5rem auto 0 auto;
     
     
