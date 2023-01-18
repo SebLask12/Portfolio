@@ -9,23 +9,14 @@ function updateDisplay(content) {
 }
 
 function addContent(element) {
-    if (element == '+' && operator == undefined) {
+    if ((element == '+' || element == '-' || element == '/' || element == '*') && operator == undefined) {
         b = a;
         a = 0;
         operator = element;
     }
-    else if (element == '-' && operator == undefined) {
-        b = a;
-        a = 0;
-        operator = element;
-    }
-    else if (element == '/' && operator == undefined) {
-        b = a;
-        a = 0;
-        operator = element;
-    }
-    else if ((a == 0 && operator && element > 0 || element != undefined) || (a == 0 && operator && element > 0 || element == undefined)) a = element;
+    else if ((Number(a) == 0 && Number(element) > 0 && operator != undefined) || (Number(a) == 0 && Number(element) > 0 && operator == undefined)) a = element;
     else if (Number(element) > 0 && Number(element) <= 9) a += element;
+    else if (element == '.' && a.includes('.') == false) a += element;
        
     updateDisplay(a);
 }
@@ -49,6 +40,23 @@ function equal() {
         b = 0;
         operator = undefined;
     }
+    else if (operator == '*') {
+        updateDisplay(Number(b) * Number(a));
+        a = 0;
+        b = 0;
+        operator = undefined;
+    }
 }
 
+function CE() {
+    a = 0; 
+    b = 0;
+    operator = undefined;
+    updateDisplay(a);
+}
+
+function root() {
+    a = Math.sqrt(a);
+    updateDisplay(a);
+}
 
