@@ -15,7 +15,7 @@
     </div> -->
     <main>
         <div class="calculator">
-            <div class="calculator__dispaly">
+            <div class="calculator__display">
                 <div class="calculator__display--text" id="display">0</div>
             </div>
             <div class="calcbuttons">
@@ -31,12 +31,12 @@
                 <div class="calcbuttons__item--0" onclick="addContent('0')">0</div>
                 <div class="calcbuttons__item--plus"onclick="addContent('+')">+</div>
                 <div class="calcbuttons__item--minus"onclick="addContent('-')">&minus;</div>
-                <div class="calcbuttons__item--turn" onclick="">&#8723;</div>
-                <div class="calcbuttons__item--equal"onclick="equal()">=</div>
+                <div class="calcbuttons__item--turn" onclick="turn()">&#8723;</div>
+                <div id="equal" class="calcbuttons__item--equal" onclick="equal()">=</div>
                 <div class="calcbuttons__item--dot"onclick="addContent('.')">.</div>
                 <div class="calcbuttons__item--multiple"onclick="addContent('*')">&lowast;</div>
                 <div class="calcbuttons__item--square"onclick="root()">&radic;x</div>
-                <div class="calcbuttons__item--element"onclick="addContent('1')">x<sup>2</sup></div>
+                <div class="calcbuttons__item--element"onclick="pow()">x<sup>2</sup></div>
                 <div class="calcbuttons__item--turnx"onclick="CE()">CE</div>
                 <div class="calcbuttons__item--divide" onclick="addContent('/')">/</div>
             </div>
