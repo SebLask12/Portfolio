@@ -11,6 +11,35 @@
         padding: 2rem;
     }
 
+    
+
+    &__image {
+        width: 100%;
+        // height: 15vh;
+    }
+
+
+
+    &__link {
+        &:link,
+        &:visited {
+            display: inline-block;
+            font-size: 1.6rem;
+            font-weight: 300;
+            padding: 1rem 2rem;
+            color: rgba($color-white, .8);
+            text-decoration: none;
+            text-transform: uppercase;
+            background-size: 100%;
+            background-color: rgba($color-primary-light, 0.9);
+            border-radius: 1.5rem;
+            transition: all .4s;
+        }
+        &:hover {
+            background-color: rgba($color-primary-dark, 0.9);
+        }
+    }
+
     &__icon {
         font-size: 6rem;
         margin-bottom: .5rem;
