@@ -20,6 +20,7 @@
     &__logo {
         width: 15rem;
         height: auto;
+        border-radius: 5rem;
     }
 
     &__navigation {
@@ -32,6 +33,11 @@
             text-align: center;
         }
     }
+
+    &__author {
+        
+        color: $color-green;
+        }
 
     &__list {
         list-style: none;
