@@ -89,7 +89,7 @@ body {
 }
 
 ::selection {
-  background-color: #0400DB;
+  background-color: #0396A6;
   color: #fff;
 }
 
@@ -144,7 +144,7 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
-  background-image: linear-gradient(to right, #0400E8, #02005C);
+  background-image: linear-gradient(to right, #55A61C, #0388A6);
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 0.2rem;
@@ -269,11 +269,11 @@ body {
   background-color: #fff;
 }
 .btn--green {
-  background-color: #0400DB;
+  background-color: #0396A6;
   color: #fff;
 }
 .btn--green::after {
-  background-color: #0400DB;
+  background-color: #0396A6;
 }
 .btn::after {
   content: "";
@@ -294,15 +294,15 @@ body {
 
 .btn-text:link, .btn-text:visited {
   font-size: 1.6rem;
-  color: #0400DB;
+  color: #0396A6;
   display: inline-block;
   text-decoration: none;
-  border-bottom: 1px solid #0400DB;
+  border-bottom: 1px solid #0396A6;
   padding: 3px;
   transition: all 0.2s;
 }
 .btn-text:hover {
-  background-color: #0400DB;
+  background-color: #0396A6;
   color: #fff;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
@@ -341,7 +341,7 @@ body {
   background-image: linear-gradient(to right bottom, #ffb900, #ff7730);
 }
 .card__side--back-2 {
-  background-image: linear-gradient(to right bottom, #0400E8, #02005C);
+  background-image: linear-gradient(to right bottom, #55A61C, #0388A6);
 }
 .card__side--back-3 {
   background-image: linear-gradient(to right bottom, #2998ff, #5643fa);
@@ -365,7 +365,7 @@ body {
   background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../img/nat-5.jpg);
 }
 .card__picture--2 {
-  background-image: linear-gradient(to right bottom, #0400E8, #02005C), url(../img/nat-6.jpg);
+  background-image: linear-gradient(to right bottom, #55A61C, #0388A6), url(../img/nat-6.jpg);
 }
 .card__picture--3 {
   background-image: linear-gradient(to right bottom, #2998ff, #5643fa), url(../img/nat-7.jpg);
@@ -390,7 +390,7 @@ body {
   background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.85), rgba(255, 119, 48, 0.85));
 }
 .card__heading-span--2 {
-  background-image: linear-gradient(to right bottom, rgba(4, 0, 232, 0.85), rgba(2, 0, 92, 0.85));
+  background-image: linear-gradient(to right bottom, rgba(85, 166, 28, 0.85), rgba(3, 136, 166, 0.85));
 }
 .card__heading-span--3 {
   background-image: linear-gradient(to right bottom, rgba(41, 152, 255, 0.85), rgba(86, 67, 250, 0.85));
@@ -523,7 +523,7 @@ body {
   }
 }
 .composition__photo:hover {
-  outline: 1.5rem solid #0400DB;
+  outline: 1.5rem solid #0396A6;
   transform: scale(1.05) translateY(-0.5rem);
   box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
   z-index: 20;
@@ -558,18 +558,18 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   background-size: 100%;
-  background-color: rgba(4, 0, 232, 0.9);
+  background-color: rgba(85, 166, 28, 0.9);
   border-radius: 1.5rem;
   transition: all 0.4s;
 }
 .app-box__link:hover {
-  background-color: rgba(2, 0, 92, 0.9);
+  background-color: rgba(3, 136, 166, 0.9);
 }
 .app-box__icon {
   font-size: 6rem;
   margin-bottom: 0.5rem;
   display: inline-block;
-  background-image: linear-gradient(to right, #0400E8, #02005C);
+  background-image: linear-gradient(to right, #55A61C, #0388A6);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -606,7 +606,7 @@ body {
 .form__input:focus {
   outline: none;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid #0400DB;
+  border-bottom: 3px solid #0396A6;
 }
 .form__input:focus:invalid {
   border-bottom: 3px solid #ff7730;
@@ -649,7 +649,7 @@ body {
 .form__radio-button {
   height: 3rem;
   width: 3rem;
-  border: 5px solid #0400DB;
+  border: 5px solid #0396A6;
   border-radius: 50%;
   display: inline-block;
   position: absolute;
@@ -666,7 +666,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #0400DB;
+  background-color: #0396A6;
   opacity: 0;
   transition: opacity 0.2s;
 }
@@ -756,7 +756,7 @@ body {
   line-height: 1;
 }
 .popup__close:hover {
-  color: #0400DB;
+  color: #0396A6;
 }
 
 #sass {
@@ -886,7 +886,7 @@ body {
   transition: all 0.2s;
 }
 .footer__link:hover, .footer__link:active {
-  color: #0400DB;
+  color: #0396A6;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
   transform: rotate(5deg) scale(1.3);
 }
@@ -964,21 +964,20 @@ body {
 
 .header {
   height: 85vh;
-  background-image: linear-gradient(to right bottom, rgba(4, 0, 232, 0.8), rgba(2, 0, 92, 0.8)), url(../img/hero-small.jpg);
+  background-image: linear-gradient(to right bottom, rgba(85, 166, 28, 0.6), rgba(3, 136, 166, 0.6)), url("../../img/backg2.jpg");
   background-size: cover;
   background-position: top;
   position: relative;
+  margin-bottom: 5rem;
 }
 @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
   .header {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     height: 95vh;
   }
 }
 @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), only screen and (min-width: 125em) {
   .header {
-    background-image: linear-gradient(to right bottom, rgba(4, 0, 232, 0.8), rgba(2, 0, 92, 0.8)), url(../img/hero.jpg);
+    background-image: linear-gradient(to right bottom, rgba(85, 166, 28, 0.6), rgba(3, 136, 166, 0.6)), url("../../img/backg2.jpg");
   }
 }
 @media only screen and (max-width: 37.5em) {
@@ -1039,7 +1038,7 @@ body {
   position: fixed;
   top: 6.5rem;
   right: 6.5rem;
-  background-image: radial-gradient(#0400E8, #02005C);
+  background-image: radial-gradient(#55A61C, #0388A6);
   z-index: 1000;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
 }
@@ -1095,7 +1094,7 @@ body {
 }
 .navigation__link:hover, .navigation__link:active {
   background-position: 100%;
-  color: #0400DB;
+  color: #0396A6;
   transform: translateX(1rem);
 }
 .navigation__checkbox:checked ~ .navigation__background {
@@ -1154,11 +1153,11 @@ body {
 
 #equal {
   grid-area: e;
-  background-color: #0400E8;
+  background-color: #55A61C;
   color: white;
 }
 #equal:hover {
-  background-color: #02005C;
+  background-color: #0388A6;
 }
 
 #calculator {
@@ -1189,7 +1188,7 @@ body {
 }
 .calculator__display {
   display: inline-block;
-  background-color: #0400E8;
+  background-color: #55A61C;
   width: 100%;
   margin: 0 auto 0 auto;
   border-radius: 1rem;
@@ -1299,7 +1298,7 @@ body {
 
 .section-apss {
   padding: 20rem 0;
-  background-image: linear-gradient(to right bottom, rgba(4, 0, 232, 0.8), rgba(2, 0, 92, 0.8)), url(../img/nat-4.jpg);
+  background-image: linear-gradient(to right bottom, rgba(85, 166, 28, 0.8), rgba(3, 136, 166, 0.8)), url(../img/nat-4.jpg);
   background-size: cover;
   transform: skewY(-7deg);
   margin-top: -10rem;
@@ -1336,7 +1335,7 @@ body {
 
 .section-book {
   padding: 15rem 0;
-  background-image: linear-gradient(to right bottom, #0400E8, #02005C);
+  background-image: linear-gradient(to right bottom, #55A61C, #0388A6);
 }
 @media only screen and (max-width: 56.25em) {
   .section-book {
