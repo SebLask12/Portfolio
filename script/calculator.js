@@ -9,50 +9,64 @@ function updateDisplay(content) {
 }
 
 function addContent(element) {
-    if ((element == '+' || element == '-' || element == '/' || element == '*') && operator == undefined) {
-        b = a;
-        a = 0;
-        operator = element;
+    if(a[0] == 0 && element > 0) a += element;
+    else if (element == '.' && a.includes('.') == true);
+    else {
+        a += element;
     }
-    else if ((Number(a) == 0 && Number(element) > 0 && operator != undefined) || (Number(a) == 0 && Number(element) > 0 && operator == undefined)) a = element;
-    else if (Number(element) > 0 && Number(element) <= 9) a += element;
-    else if (element == '.' && a.includes('.') == false) a += element;
        
     updateDisplay(a);
+    
+    // if ((element == '+' || element == '-' || element == '/' || element == '*') && operator == undefined) {
+    //     b = a;
+    //     a = 0;
+    //     operator = element;
+    // }
+    // else if ((Number(a) == 0 && Number(element) > 0 && operator != undefined) || (Number(a) == 0 && Number(element) > 0 && operator == undefined)) a = element;
+    // else if (Number(element) > 0 && Number(element) <= 9) a += element;
+    // else if (element == '.' && a.includes('.') == false) a += element;
+
+    
 }
 
 function equal() {
-    if (operator == '+') {
-        updateDisplay(Number(b) + Number(a));
-        a = 0;
-        b = 0;
-        operator = undefined;
-    }
-    else if (operator == '-') {
-        updateDisplay(Number(b) - Number(a));
-        a = 0;
-        b = 0;
-        operator = undefined;
-    }
-    else if (operator == '/') {
-        updateDisplay(Number(b) / Number(a));
-        a = 0;
-        b = 0;
-        operator = undefined;
-    }
-    else if (operator == '*') {
-        updateDisplay(Number(b) * Number(a));
-        a = 0;
-        b = 0;
-        operator = undefined;
-    }
+
+    a = eval(a)
+    updateDisplay(a);
+
+
+    // if (operator == '+') {
+    //     updateDisplay(Number(b) + Number(a));
+    //     a = 0;
+    //     b = 0;
+    //     operator = undefined;
+    // }
+    // else if (operator == '-') {
+    //     updateDisplay(Number(b) - Number(a));
+    //     a = 0;
+    //     b = 0;
+    //     operator = undefined;
+    // }
+    // else if (operator == '/') {
+    //     updateDisplay(Number(b) / Number(a));
+    //     a = 0;
+    //     b = 0;
+    //     operator = undefined;
+    // }
+    // else if (operator == '*') {
+    //     updateDisplay(Number(b) * Number(a));
+    //     a = 0;
+    //     b = 0;
+    //     operator = undefined;
+    // }
+    
+
 }
 
 function CE() {
-    a = 0; 
-    b = 0;
+    a = ''; 
     operator = undefined;
-    updateDisplay(a);
+    updateDisplay(0);
 }
 
 function root() {

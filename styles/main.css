@@ -1186,6 +1186,11 @@ body {
   box-shadow: 0.5rem 2rem 3rem rgba(0, 0, 0, 0.6);
   border-radius: 1rem;
 }
+@media only screen and (max-width: 37.5em) {
+  .calculator {
+    width: 80vw;
+  }
+}
 .calculator__display {
   display: inline-block;
   background-color: #55A61C;
@@ -1206,8 +1211,7 @@ body {
   font-size: 4rem;
   border-radius: 1rem;
   display: grid;
-  /*grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(7, 5vw);*/
+  width: 100%;
   grid-template-areas: " turnx element square divide" " seven eight nine multiple" " four five six m" " one two three p" " t z d e";
   grid-gap: 0.3rem;
 }
