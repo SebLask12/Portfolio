@@ -1,5 +1,5 @@
 #equal {
-    grid-area: e;
+    grid-area: equal;
     background-color: $color-primary-light;
     color: white;
 
@@ -77,9 +77,9 @@
     width: 100%;
     grid-template-areas:' turnx element square divide'
                         ' seven eight nine multiple'
-                        ' four five six m'
-                        ' one two three p'
-                        ' t z d e';
+                        ' four five six minus'
+                        ' one two three plus'
+                        ' turn z dot equal';
     grid-gap: 0.3rem;
     // padding: 1.5rem;
 
@@ -128,19 +128,19 @@
             grid-area: z;
         }
         &--plus {
-            grid-area: p;
+            grid-area: plus;
         }
 
         &--minus {
-            grid-area: m;
+            grid-area: minus;
         }
 
         &--turn {
-            grid-area: t;
+            grid-area: turn;
         }
 
         &--dot {
-            grid-area: d;
+            grid-area: dot;
         }
         &--multiple {
             grid-area: multiple;

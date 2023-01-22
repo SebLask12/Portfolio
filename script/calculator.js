@@ -3,6 +3,8 @@ const display = document.getElementById('display');
 let a = "";
 let b = "";
 let operator;
+const displayContent = display.innerHTML;
+
 
 function updateDisplay(content) {
     display.innerHTML = content;
@@ -10,56 +12,28 @@ function updateDisplay(content) {
 
 function addContent(element) {
     if(a[0] == 0 && element > 0) a += element;
-    else if (element == '.' && a.includes('.') == true);
+    // else if (element == '.' && display.innerHTML[(display.innerHTML).length-1] == '.');
+    // else if (element == '.' && displayContent.includes('.') == true) {
+    //     if (display.innerHTML[(display.innerHTML).length - 1] == '.');
+    //     else {
+    //         for (let i = displayContent.length - 1; i >= 0; i--)
+    //         {
+    //             if(i == )
+    //             }
+    //     }
+    // }
+        
     else {
         a += element;
     }
-       
-    updateDisplay(a);
-    
-    // if ((element == '+' || element == '-' || element == '/' || element == '*') && operator == undefined) {
-    //     b = a;
-    //     a = 0;
-    //     operator = element;
-    // }
-    // else if ((Number(a) == 0 && Number(element) > 0 && operator != undefined) || (Number(a) == 0 && Number(element) > 0 && operator == undefined)) a = element;
-    // else if (Number(element) > 0 && Number(element) <= 9) a += element;
-    // else if (element == '.' && a.includes('.') == false) a += element;
-
-    
+    //dot to modify
+    updateDisplay(a);    
 }
 
 function equal() {
 
     a = eval(a)
     updateDisplay(a);
-
-
-    // if (operator == '+') {
-    //     updateDisplay(Number(b) + Number(a));
-    //     a = 0;
-    //     b = 0;
-    //     operator = undefined;
-    // }
-    // else if (operator == '-') {
-    //     updateDisplay(Number(b) - Number(a));
-    //     a = 0;
-    //     b = 0;
-    //     operator = undefined;
-    // }
-    // else if (operator == '/') {
-    //     updateDisplay(Number(b) / Number(a));
-    //     a = 0;
-    //     b = 0;
-    //     operator = undefined;
-    // }
-    // else if (operator == '*') {
-    //     updateDisplay(Number(b) * Number(a));
-    //     a = 0;
-    //     b = 0;
-    //     operator = undefined;
-    // }
-    
 
 }
 
