@@ -10,17 +10,15 @@
 }
 
 #calculator {
-    background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.6),
+        rgba($color-primary-dark, 0.6));
     height: 100vh;
 }
 
 .head-calc {
     height: 20vh;
-    // background-image: linear-gradient(
-    //     to right bottom,
-    //     rgba($color-primary-light, 0.8),
-    //     rgba($color-primary-dark, 0.8)),
-    // url(../img/hero-small.jpg);
     background-size: cover;
     background-position: top;
     position: relative;
@@ -39,8 +37,9 @@
 .calculator {
     width: 50vw;
     margin: 5rem auto 0 auto;
-    box-shadow: 0.5rem 2rem 3rem rgba(#000000, 0.6);
+    
     border-radius: 1rem;
+
 
     @include respond(phone) {
         width: 80vw;
@@ -54,6 +53,8 @@
         width: 100%;
         margin: 0 auto 0 auto;
         border-radius: 1rem;
+        border: 0.5rem solid black;
+        box-shadow: 0.5rem 1rem 1.5rem rgba(#000000, 0.6);
 
         &--text {
             font-weight: 300;
@@ -82,6 +83,8 @@
                         ' turn z dot equal';
     grid-gap: 0.3rem;
     // padding: 1.5rem;
+    border: 0.5rem solid black;
+    box-shadow: 1rem 3rem 4rem rgba(#000000, 0.6);
 
     &>div {
         cursor: pointer;

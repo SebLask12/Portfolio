@@ -37,8 +37,7 @@ function addContent(element) {
 }
 
 
-function equal() {
-
+const equal = () => {
     let a = eval(display.innerHTML.toString())
     equation.length = 0;
     equation[0] = String(a);
@@ -46,13 +45,13 @@ function equal() {
     updateDisplay(a);
 }
 
-function CE() {
+const CE = () => {
     equation.length = 0;
     equPos = 0;
     updateDisplay(0);
 }
 
-function root() {
+const root = () => {
     let a = Math.sqrt(display.innerHTML.toString());
     equation.length = 0;
     equation[0] = String(a);
@@ -60,7 +59,7 @@ function root() {
     updateDisplay(a);
 }
 
-function pow() {
+const pow = () => {
     let a = Math.pow(display.innerHTML.toString(), 2);
     equation.length = 0;
     equation[0] = String(a);
@@ -68,7 +67,7 @@ function pow() {
     updateDisplay(a)
 }
 
-function turn() {
+const turn = () => {
     let a = eval(display.innerHTML.toString())
     equation.length = 0;
     equation[0] = String(-a);
