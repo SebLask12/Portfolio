@@ -1,85 +1,69 @@
 //Calculator App
 const display = document.getElementById('display');
-let a = "";
-let b = "";
-let operator;
+let equation = [];
+let equPos = 0;
+let operator = ['+','-','*','/'];
 
 function updateDisplay(content) {
-    display.innerHTML = content;
+    display.innerHTML = content;        
 }
+
 
 function addContent(element) {
-    if(a[0] == 0 && element > 0) a += element;
-    else if (element == '.' && a.includes('.') == true);
-    else {
-        a += element;
+    const checkOperator = (sign) => operator.includes(sign);
+    const checkSegment = () => equation[equPos].split('').some((e) => operator.includes(e));
+    if (element >=0 && element <=9) {
+        if(Number(display.innerHTML[0]) == 0 && element > 0) equation[equPos] = element;
+        else if(equation[equPos] == undefined) equation[equPos] = element;
+        else equation[equPos] += element;
+    } 
+    else if (element == '.' && equation[equPos].includes('.') == true);
+    else if (checkOperator(element) == true && checkSegment() == false) {
+        equation[equPos] += element;
+        equPos++;
+        console.log('operator');
     }
-       
-    updateDisplay(a);
     
-    // if ((element == '+' || element == '-' || element == '/' || element == '*') && operator == undefined) {
-    //     b = a;
-    //     a = 0;
-    //     operator = element;
-    // }
-    // else if ((Number(a) == 0 && Number(element) > 0 && operator != undefined) || (Number(a) == 0 && Number(element) > 0 && operator == undefined)) a = element;
-    // else if (Number(element) > 0 && Number(element) <= 9) a += element;
-    // else if (element == '.' && a.includes('.') == false) a += element;
-
-    
+    updateDisplay(equation .join(''));
+        
 }
+
 
 function equal() {
 
-    a = eval(a)
+    let a = eval(display.innerHTML.toString())
+    equation.length = 0;
+    equation[0] = String(a);
+    equPos = 0;
     updateDisplay(a);
-
-
-    // if (operator == '+') {
-    //     updateDisplay(Number(b) + Number(a));
-    //     a = 0;
-    //     b = 0;
-    //     operator = undefined;
-    // }
-    // else if (operator == '-') {
-    //     updateDisplay(Number(b) - Number(a));
-    //     a = 0;
-    //     b = 0;
-    //     operator = undefined;
-    // }
-    // else if (operator == '/') {
-    //     updateDisplay(Number(b) / Number(a));
-    //     a = 0;
-    //     b = 0;
-    //     operator = undefined;
-    // }
-    // else if (operator == '*') {
-    //     updateDisplay(Number(b) * Number(a));
-    //     a = 0;
-    //     b = 0;
-    //     operator = undefined;
-    // }
-    
-
 }
 
 function CE() {
-    a = ''; 
-    operator = undefined;
+    equation.length = 0;
+    equPos = 0;
     updateDisplay(0);
 }
 
 function root() {
-    a = Math.sqrt(a);
+    let a = Math.sqrt(display.innerHTML.toString());
+    equation.length = 0;
+    equation[0] = String(a);
+    equPos = 0;
     updateDisplay(a);
 }
 
 function pow() {
-    a = Math.pow(a, 2);
+    let a = Math.pow(display.innerHTML.toString(), 2);
+    equation.length = 0;
+    equation[0] = String(a);
+    equPos = 0;
     updateDisplay(a)
 }
 
 function turn() {
-    a = -a;
-    updateDisplay(a);
+    let a = eval(display.innerHTML.toString())
+    equation.length = 0;
+    equation[0] = String(-a);
+    equPos = 0;
+    updateDisplay(-a);
 }
