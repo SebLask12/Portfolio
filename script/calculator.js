@@ -1,59 +1,69 @@
 //Calculator App
 const display = document.getElementById('display');
-let a = "";
-let b = "";
-let operator;
-const displayContent = display.innerHTML;
-
+let equation = [];
+let equPos = 0;
+let operator = ['+','-','*','/'];
 
 function updateDisplay(content) {
-    display.innerHTML = content;
+    display.innerHTML = content;        
 }
 
+
 function addContent(element) {
-    if(a[0] == 0 && element > 0) a += element;
-    // else if (element == '.' && display.innerHTML[(display.innerHTML).length-1] == '.');
-    // else if (element == '.' && displayContent.includes('.') == true) {
-    //     if (display.innerHTML[(display.innerHTML).length - 1] == '.');
-    //     else {
-    //         for (let i = displayContent.length - 1; i >= 0; i--)
-    //         {
-    //             if(i == )
-    //             }
-    //     }
-    // }
-        
-    else {
-        a += element;
+    const checkOperator = (sign) => operator.includes(sign);
+    const checkSegment = () => equation[equPos].split('').some((e) => operator.includes(e));
+    if (element >=0 && element <=9) {
+        if(Number(display.innerHTML[0]) == 0 && element > 0) equation[equPos] = element;
+        else if(equation[equPos] == undefined) equation[equPos] = element;
+        else equation[equPos] += element;
+    } 
+    else if (element == '.' && equation[equPos].includes('.') == true);
+    else if (checkOperator(element) == true && checkSegment() == false) {
+        equation[equPos] += element;
+        equPos++;
+        console.log('operator');
     }
-    //dot to modify
-    updateDisplay(a);    
+    
+    updateDisplay(equation .join(''));
+        
 }
+
 
 function equal() {
 
-    a = eval(a)
+    let a = eval(display.innerHTML.toString())
+    equation.length = 0;
+    equation[0] = String(a);
+    equPos = 0;
     updateDisplay(a);
-
 }
 
 function CE() {
-    a = ''; 
-    operator = undefined;
+    equation.length = 0;
+    equPos = 0;
     updateDisplay(0);
 }
 
 function root() {
-    a = Math.sqrt(a);
+    let a = Math.sqrt(display.innerHTML.toString());
+    equation.length = 0;
+    equation[0] = String(a);
+    equPos = 0;
     updateDisplay(a);
 }
 
 function pow() {
-    a = Math.pow(a, 2);
+    let a = Math.pow(display.innerHTML.toString(), 2);
+    equation.length = 0;
+    equation[0] = String(a);
+    equPos = 0;
     updateDisplay(a)
 }
 
 function turn() {
-    a = -a;
-    updateDisplay(a);
+    let a = eval(display.innerHTML.toString())
+    equation.length = 0;
+    equation[0] = String(-a);
+    equPos = 0;
+    updateDisplay(-a);
 }
