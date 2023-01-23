@@ -220,6 +220,10 @@ body {
   box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.6);
 }
 
+.u-pointerEvent {
+  pointer-events: none;
+}
+
 .bg-video {
   position: absolute;
   top: 0;
@@ -1152,7 +1156,7 @@ body {
 }
 
 #equal {
-  grid-area: e;
+  grid-area: equal;
   background-color: #55A61C;
   color: white;
 }
@@ -1212,7 +1216,7 @@ body {
   border-radius: 1rem;
   display: grid;
   width: 100%;
-  grid-template-areas: " turnx element square divide" " seven eight nine multiple" " four five six m" " one two three p" " t z d e";
+  grid-template-areas: " turnx element square divide" " seven eight nine multiple" " four five six minus" " one two three plus" " turn z dot equal";
   grid-gap: 0.3rem;
 }
 .calcbuttons > div {
@@ -1256,16 +1260,16 @@ body {
   grid-area: z;
 }
 .calcbuttons__item--plus {
-  grid-area: p;
+  grid-area: plus;
 }
 .calcbuttons__item--minus {
-  grid-area: m;
+  grid-area: minus;
 }
 .calcbuttons__item--turn {
-  grid-area: t;
+  grid-area: turn;
 }
 .calcbuttons__item--dot {
-  grid-area: d;
+  grid-area: dot;
 }
 .calcbuttons__item--multiple {
   grid-area: multiple;

@@ -8,23 +8,31 @@ function updateDisplay(content) {
     display.innerHTML = content;        
 }
 
-
 function addContent(element) {
-    const checkOperator = (sign) => operator.includes(sign);
-    const checkSegment = () => equation[equPos].split('').some((e) => operator.includes(e));
+    const checkInclude = (data, search) => data.includes(search);
+    const checkEquation = (search) => equation[equPos].split('').slice(1).some((e) => search.includes(e));
     if (element >=0 && element <=9) {
-        if(Number(display.innerHTML[0]) == 0 && element > 0) equation[equPos] = element;
+        if (display.innerHTML[1] == '.' && display.innerHTML.length == 2) equation[equPos] += element;
+        else if (Number(display.innerHTML[0]) == 0 && element > 0) equation[equPos] = element;
         else if(equation[equPos] == undefined) equation[equPos] = element;
         else equation[equPos] += element;
     } 
-    else if (element == '.' && equation[equPos].includes('.') == true);
-    else if (checkOperator(element) == true && checkSegment() == false) {
+    else if (element == '.') {
+        if (equation[equPos] == undefined) {
+            equation[equPos] = 0 + element;
+        }
+        else if (checkInclude(equation[equPos], '.') == true);
+        else {
+            equation[equPos] += element;
+        }
+        
+    }
+    else if (checkInclude(operator,element) == true && checkEquation(operator) == false) {
         equation[equPos] += element;
         equPos++;
-        console.log('operator');
     }
     
-    updateDisplay(equation .join(''));
+    updateDisplay(equation.join(''));
         
 }
 
