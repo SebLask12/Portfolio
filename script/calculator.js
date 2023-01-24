@@ -3,6 +3,17 @@ const display = document.getElementById('display');
 let equation = [];
 let equPos = 0;
 let operator = ['+','-','*','/'];
+let keys = ['1','2','3','4','5','6','7','8','9','/','*','-','+','.'];
+
+document.addEventListener('keydown', function (e) {
+    const checkKeys = (key) => keys.includes(key);
+    if (checkKeys(e.key)) {
+      addContent(`${e.key}`);
+    }
+    else if (e.key === 'Enter') {
+        equal();
+    }
+  });
 
 function updateDisplay(content) {
     display.innerHTML = content;        
@@ -21,13 +32,13 @@ function addContent(element) {
         if (equation[equPos] == undefined) {
             equation[equPos] = 0 + element;
         }
-        else if (checkInclude(equation[equPos], '.') == true);
+        else if (checkInclude(equation[equPos], '.'));
         else {
             equation[equPos] += element;
         }
         
     }
-    else if (checkInclude(operator,element) == true && checkEquation(operator) == false) {
+    else if (checkInclude(operator,element) && !checkEquation(operator)) {
         equation[equPos] += element;
         equPos++;
     }
