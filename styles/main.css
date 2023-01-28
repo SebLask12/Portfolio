@@ -224,6 +224,11 @@ body {
   pointer-events: none;
 }
 
+.u-80vw {
+  margin: 0 10vw 0 10vw;
+  display: block;
+}
+
 .bg-video {
   position: absolute;
   top: 0;

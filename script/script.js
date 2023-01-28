@@ -9,7 +9,10 @@ document.querySelectorAll('.navigation__link').forEach(function (el) {
         const id = this.getAttribute('href');
         document.querySelector(id).scrollIntoView({
             behaviour: 'smooth'
-        })
+        });
+        link_array.forEach(navigation__link => {
+            navigation__link.classList.add('u-pointerEvent');
+        });
     })
 });
 
