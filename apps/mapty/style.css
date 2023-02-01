@@ -197,7 +197,7 @@ a:visited {
 
 }
 
-media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   #map {
     background-color: lightblue;
   }
@@ -260,10 +260,8 @@ media only screen and (max-width: 600px) {
   height: 100%;
   font-size: 2.2rem;
   margin-right: 0.2rem;
-  height: 0.28rem;
   transition: all .6s;
   justify-content: space-between;
-
   width: 17%;
 
   

@@ -74,7 +74,10 @@ class App {
     #map;
     #mapEvent;
     #workouts=[];
-    #mapZoomLevel = 12;
+  #mapZoomLevel = 12;
+  #markers = [];
+  #index = [];
+  #oldCoords;
 
     constructor() {
         this._getPosition();
@@ -83,7 +86,15 @@ class App {
 
         form.addEventListener('submit', this._newWorkout.bind(this))
         inputType.addEventListener('change', this._toggleElevationField);
-        containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+      containerWorkouts.addEventListener('click', (event) => {
+        if (event.target.classList.contains('workout__buttons--edit')) this._editWorkout(event);
+        else if (event.target.classList.contains('workout__buttons--delete')) this._deleteWorkout(event);
+        else this._moveToPopup(event);
+          
+      });
+        // containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+        // containerWorkouts.addEventListener('click', this._editWorkout.bind(this));
+        
         
     }
 
@@ -145,8 +156,9 @@ class App {
         //Get data from form
         const type = inputType.value;
         const distance = +inputDistance.value;
-        const duration = +inputDuration.value;
-        const {lat, lng } = this.#mapEvent.latlng;
+      const duration = +inputDuration.value;
+        if (!this.#mapEvent.latlng) {let { lat, lng } = this.#oldCoords}
+        else { let { lat, lng } = this.#mapEvent.latlng; }
         //If workout running, create runnign object
         let workout;
         if (type === 'running') {
@@ -154,9 +166,6 @@ class App {
             console.log(distance,duration,cadence);
              // Check if data is valid
             if (
-                // !Number.isFinite(distance) ||
-                // !Number.isFinite(duration) ||
-                // !Number.isFinite(cadence)
                 !validInputs(distance, duration, cadence) || !allPositive(distance, duration, cadence)
             )
             return alert('Inputs have to be positive numbers!');
@@ -174,7 +183,7 @@ class App {
       
             workout = new cycling([lat, lng], distance, duration, elevation);
         }
-
+console.log(workout);
         //Add new object to worktout array
         this.#workouts.push(workout);
 
@@ -193,8 +202,51 @@ class App {
 
     }
 
-    _deleteWorkout() {
-      
+    _editWorkout(e) {
+      this._showForm(e);
+      const editItem = e.target;
+      const workoutEl = e.target.closest('.workout');
+      const workout = this.#workouts.indexOf(this.#workouts.find(work => work.id === workoutEl.dataset.id));
+      const oldWorkout = this.#workouts[workout];
+      console.log(this.#workouts[workout]);
+      inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value = '';
+      inputType.value = oldWorkout.type;
+      inputDistance.value = oldWorkout.distance;
+      inputDuration.value = oldWorkout.duration;
+      // this.#mapEvent.latlng = oldWorkout.latlng;
+      console.log(oldWorkout.coords[0]);
+      // this.#mapEvent.latlng.lat = oldWorkout.coords[0];
+      // this.#mapEvent.latlng.lng = oldWorkout.coords[1];
+      this.#oldCoords = oldWorkout.coords;
+      // inputCadence.value === oldWorkout.cadence ? this._toggleElevationField : console.log('ss');;
+      // inputType.value === 'running' ? inputCadence.value = oldWorkout.cadence : inputElevation.value = oldWorkout.elevation;
+
+      if (inputType.value === 'running') {
+        inputElevation.closest('.form__row').classList.add('form__row--hidden');
+        inputCadence.closest('.form__row').classList.remove('form__row--hidden');
+        inputCadence.value = oldWorkout.cadence;
+      }
+      else if (inputType.value === 'cycling') {
+        inputElevation.closest('.form__row').classList.remove('form__row--hidden');
+        inputCadence.closest('.form__row').classList.add('form__row--hidden');
+        inputElevation.value = oldWorkout.elevation;
+      }
+      this._deleteWorkout(e);
+        
+
+      }
+    
+  _deleteWorkout(e) {
+      const deletedItem = e.target;
+      const workoutEl = deletedItem.closest('.workout');
+      const workout = this.#workouts.indexOf(this.#workouts.find(work => work.id === workoutEl.dataset.id));
+      console.log(this.#markers);
+      console.log(this.#workouts);
+      this.#markers[workout].remove();
+      this.#markers.splice(workout, 1);
+      this.#workouts.splice(workout, 1);     
+      workoutEl.remove();
+      this._setLocalStorage();
     }
 
     _setLocalStorage() {
@@ -215,18 +267,23 @@ class App {
     }
 
     
-    _renderWorkoutMarker(workout) {
-        L.marker(workout.coords)
-            .addTo(this.#map)
-            .bindPopup(
-            L.popup({
-            maxWidth: 250,
-            minWidth: 100,
-            autoClose: false,
-            closeOnClick:  false,
-            className: `${workout.type}-popup`,
+  _renderWorkoutMarker(workout) {
+    const idWorkout = this.#workouts.indexOf(workout);
+    const newMarker = L.marker(workout.coords)
+      .addTo(this.#map)
+      .bindPopup(
+        L.popup({
+          maxWidth: 250,
+          minWidth: 100,
+          autoClose: false,
+          closeOnClick: false,
+          className: `${workout.type}-popup`,
         })).setPopupContent(`${workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'} ${workout.description}`)
-            .openPopup();
+      .openPopup();
+    
+      this.#markers.splice(idWorkout, 0 ,newMarker); //powiązanie marker & workout
+      
+      
     }
 
     _renderWorkout(workout) {
@@ -285,9 +342,8 @@ class App {
         
         const workoutEl = e.target.closest('.workout');
         console.log(workoutEl);
-        
-        if (!workoutEl) return;
-
+      if (!workoutEl) return;
+      if (e.target.closest('.workout__buttons')) return;
         const workout = this.#workouts.find(work => work.id === workoutEl.dataset.id);
 
         this.#map.setView(workout.coords, this.#mapZoomLevel, {
@@ -299,7 +355,7 @@ class App {
 
         //usign public interface
         
-        workout.click();
+        workout.click;
         
     }
 
