@@ -193,6 +193,10 @@ class App {
 
     }
 
+    _deleteWorkout() {
+      
+    }
+
     _setLocalStorage() {
       localStorage.setItem('workouts', JSON.stringify(this.#workouts));
     }
@@ -229,7 +233,7 @@ class App {
         console.log(workout);
         let html = `
       <li class="workout workout--${workout.type}" data-id="${workout.id}">
-        <h2 class="workout__title">${workout.description}</h2>
+        <div class="workout__header"><h2 class="workout__title">${workout.description}</h2><div class="workout__buttons"><label class="workout__buttons--edit">📝</label><label class="workout__buttons--delete">❎</label></div></div>
         <div class="workout__details">
           <span class="workout__icon">${
             workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'
@@ -280,6 +284,7 @@ class App {
     _moveToPopup(e) {
         
         const workoutEl = e.target.closest('.workout');
+        console.log(workoutEl);
         
         if (!workoutEl) return;
 
