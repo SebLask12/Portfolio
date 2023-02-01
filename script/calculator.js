@@ -2,9 +2,10 @@
 const display = document.getElementById('display');
 let equation = [];
 let equPos = 0;
+let containter;
 let operator = ['+','-','*','/'];
 let keys = ['1','2','3','4','5','6','7','8','9','/','*','-','+','.'];
-
+equation[equPos] = 0;
 document.addEventListener('keydown', function (e) {
     const checkKeys = (key) => keys.includes(key);
     if (checkKeys(e.key)) {
@@ -22,11 +23,11 @@ function updateDisplay(content) {
 function addContent(element) {
     const checkInclude = (data, search) => data.includes(search);
     const checkEquation = (search) => equation[equPos].split('').slice(1).some((e) => search.includes(e));
-    if (element >=0 && element <=9) {
-        if (display.innerHTML[1] == '.' && display.innerHTML.length == 2) equation[equPos] += element;
-        else if (Number(display.innerHTML[0]) == 0 && element > 0) equation[equPos] = element;
-        else if(equation[equPos] == undefined) equation[equPos] = element;
-        else equation[equPos] += element;
+    if (element >= 0 && element <= 9) {
+            if (display.innerHTML[1] == '.' && display.innerHTML.length == 2) equation[equPos] += element;
+            else if (Number(display.innerHTML[0]) == 0 && element > 0) equation[equPos] = element;
+            else if (equation[equPos] == undefined) equation[equPos] = element;
+            else equation[equPos] += element;
     } 
     else if (element == '.') {
         if (equation[equPos] == undefined) {
@@ -39,10 +40,16 @@ function addContent(element) {
         
     }
     else if (checkInclude(operator,element) && !checkEquation(operator)) {
-        equation[equPos] += element;
-        equPos++;
+        if (display.innerHTML.slice(-1) == '.') {
+            equation[equPos] = equation[equPos].slice(0, -1);
+            equation[equPos] += element;
+            equPos++;
+        } 
+        else {
+            equation[equPos] += element;
+            equPos++;
+        }
     }
-    
     updateDisplay(equation.join(''));
         
 }
