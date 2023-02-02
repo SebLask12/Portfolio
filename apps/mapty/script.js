@@ -8,6 +8,11 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
+const deleteAll = document.querySelector('.deleteAll__button');
+const buttonsContainer = document.querySelector('.buttons_container--hidden');
+const arrowUp = document.querySelector('.arrow__up');
+const arrowDown = document.querySelector('.arrow__down');
+const sortButton = document.querySelector('.sort__button');
 
 class workout {
     date = new Date();
@@ -78,12 +83,13 @@ class App {
   #markers = [];
   #index = [];
   #oldCoords;
+  #sortFlag;
 
     constructor() {
         this._getPosition();
 
         this._getLocalStorage();
-
+        deleteAll.addEventListener('click' , this._deleteAllWorkouts.bind(this));
         form.addEventListener('submit', this._newWorkout.bind(this))
         inputType.addEventListener('change', this._toggleElevationField);
       containerWorkouts.addEventListener('click', (event) => {
@@ -92,6 +98,7 @@ class App {
         else this._moveToPopup(event);
           
       });
+      sortButton.addEventListener('click', this._sortDistance.bind(this));
         // containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
         // containerWorkouts.addEventListener('click', this._editWorkout.bind(this));
         
@@ -190,7 +197,7 @@ class App {
       
             workout = new cycling([lat, lng], distance, duration, elevation);
         }
-console.log(workout);
+        console.log(workout);
         //Add new object to worktout array
         this.#workouts.push(workout);
 
@@ -236,10 +243,9 @@ console.log(workout);
       else if (inputType.value === 'cycling') {
         inputElevation.closest('.form__row').classList.remove('form__row--hidden');
         inputCadence.closest('.form__row').classList.add('form__row--hidden');
-        inputElevation.value = oldWorkout.elevation;
+        inputElevation.value = oldWorkout.elevationGain;
       }
       this._deleteWorkout(e);
-        
 
       }
     
@@ -255,6 +261,11 @@ console.log(workout);
       workoutEl.remove();
       this._setLocalStorage();
     }
+
+    _deleteAllWorkouts() {
+      console.log('delete');
+      this.reset();
+    };
 
     _setLocalStorage() {
       localStorage.setItem('workouts', JSON.stringify(this.#workouts));
@@ -273,6 +284,27 @@ console.log(workout);
       });
     }
 
+    _sortDistance() {
+      arrowUp.classList.toggle('arrow--hidden');
+      arrowDown.classList.toggle('arrow--hidden');
+
+      let store = [];
+      let sorted;
+      const workoutsSidebar = document.querySelectorAll(".workout");
+      this.#workouts.forEach(work => {
+        // pobierz work, zrob tablice
+        store.unshift({work: work, distance: work.distance});
+        
+        // this._renderWorkout(work);
+      });
+      if(this.#sortFlag) sorted = store.sort((a, b) => a.distance - b.distance);
+      else if (!this.#sortFlag) sorted = store.sort((a, b) => b.distance - a.distance);
+      sorted.forEach(work => this._renderWorkout(work.work));
+      workoutsSidebar.forEach(work => work.remove());
+      this.#sortFlag = !this.#sortFlag;
+      
+
+    }
     
   _renderWorkoutMarker(workout) {
     const idWorkout = this.#workouts.indexOf(workout);
@@ -289,13 +321,16 @@ console.log(workout);
       .openPopup();
     
       this.#markers.splice(idWorkout, 0 ,newMarker); //powiązanie marker & workout
+
+
       
       
     }
 
     _renderWorkout(workout) {
-        console.log(workout);
-        let html = `
+      
+      console.log(this.#workouts.length);
+      let html = `
       <li class="workout workout--${workout.type}" data-id="${workout.id}">
         <div class="workout__header"><h2 class="workout__title">${workout.description}</h2><div class="workout__buttons"><label class="workout__buttons--edit">📝</label><label class="workout__buttons--delete">❎</label></div></div>
         <div class="workout__details">
