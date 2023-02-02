@@ -157,8 +157,15 @@ class App {
         const type = inputType.value;
         const distance = +inputDistance.value;
       const duration = +inputDuration.value;
-        if (!this.#mapEvent.latlng) {let { lat, lng } = this.#oldCoords}
-        else { let { lat, lng } = this.#mapEvent.latlng; }
+      let lat, lng;
+        if (!this.#mapEvent.latlng) {
+          lat = this.#oldCoords[0];
+          lng = this.#oldCoords[1];
+        }
+        else { 
+          lat = this.#mapEvent.latlng.lat;
+          lng = this.#mapEvent.latlng.lng;
+        }
         //If workout running, create runnign object
         let workout;
         if (type === 'running') {
