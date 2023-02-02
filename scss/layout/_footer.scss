@@ -41,10 +41,11 @@
 
     &__list {
         list-style: none;
+        padding-left: 2rem
     }
 
     &__item {
-        display: inline-block;
+        display: block;
 
         &:not(:last-child) {
             margin-right: 1.5rem;
@@ -56,7 +57,7 @@
         &:visited {
             color: $color-grey-light-1;
             background-color: $color-grey-dark-3;
-            text-decoration: none;
+            text-decoration: underline;
             text-transform: uppercase;
             display: inline-block;
             transition: all .2s;
