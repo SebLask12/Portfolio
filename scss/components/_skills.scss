@@ -1,86 +1,64 @@
-#sass {
-    transform: scale(0.75) translateX(-3.4rem);
-}
-
-.skills{
-    width: 75%;
-    margin: 0 auto;
-    box-shadow: 0 3rem 6rem rgba($color-black, .1);
-    background-color: rgba($color-white, .6);
+.skills-box {
+    background-color: rgba($color-white, .8);
+    font-size: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
     border-radius: 3px;
-    padding: 6rem;
-    padding-left: 9rem;
-    font-size: $default-font-size;
-    transform: skewX(-12deg);
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+    transition: transform .3s;
+    // min-height: 55vh;
 
     @include respond(tab-port) {
+        padding: 2rem;
+    }
+
+    
+
+    &__image {
         width: 100%;
-        padding: 4rem;
-        padding-left: 7rem;
-    }
+        height: 17rem;
 
-    @include respond(phone) {
-        transform: skewX(0);
-    }
-
-    &__shape {
-        width: 15rem;
-        height: 15rem;
-        float: left;
-        transform: translateX(-3rem) skewX(12deg);
-        position: relative;
-        overflow: hidden;
-        // border-radius: 50%;
-
-        // @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
-        //     -webkit-clip-path: circle(50% at 50% 50%);
-        //     clip-path: circle(50% at 50% 50%);
-        //     -webkit-shape-outside: circle(50% at 50% 50%);
-        //     shape-outside: circle(50% at 50% 50%);
-        //     border-radius: none;
-        // }
-
-        @include respond(phone) {
-            transform: translateX(-3rem) skewX(0);
+        @include respond(tab-port) {
+            height: auto;
         }
     }
 
-    &__img {
-        height: 100%;
-        // transform: translateX(-4rem) scale(1.4);
-        backface-visibility: hidden;
-        transition: all .5s;
-    }
 
-    &__text {
-        transform: skewX(12deg);
 
-        @include respond(phone) {
-            transform: skewX(0);
+    &__link {
+        &:link,
+        &:visited {
+            display: inline-block;
+            font-size: 1.6rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            color: rgba($color-white, .8);
+            text-decoration: none;
+            text-transform: uppercase;
+            background-size: 100%;
+            background-color: rgba($color-primary-light, 0.9);
+            border-radius: 1rem;
+            transition: all .4s;
+        }
+        &:hover {
+            background-color: rgba($color-primary-dark, 0.9);
         }
     }
 
-    &__caption {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 20%);
-        color: $color-white;
-        text-transform: uppercase;
-        font-size: 1.7rem;
-        text-align: center;
-        opacity: 0;
-        transition: all .5s;
-        backface-visibility: hidden;
+    &__icon {
+        font-size: 6rem;
+        margin-bottom: .5rem;
+        display: inline-block;
+        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+        -webkit-background-clip: text;
+        color: transparent;
+
+        @include respond(tab-port) {
+            margin-bottom: 0;
+        }
     }
 
-    &:hover &__caption {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
-
-    &:hover &__img {
-        // transform: translateX(-4rem) scale(1);
-        // filter: blur(3px) brightness(80%);
+    &:hover {
+        transform: translateY(-1.5rem) scale(1.03);
     }
 }

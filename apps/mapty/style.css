@@ -34,6 +34,10 @@ body {
   display: flex;
 }
 
+@media screen {
+  
+}
+
 /* GENERAL */
 a:link,
 a:visited {
@@ -229,12 +233,14 @@ a:visited {
 @media only screen and (max-width: 900px) {
   body {
     display: block;
+    padding: 0;
   }
   #map {
-    width: 100%;
+    margin: 5rem;
   }
   .sidebar {
     width: 100%;
+    padding: 2rem .5rem 1.5rem .5rem;
   }
 }
 
