@@ -5,15 +5,12 @@ let equPos = 0;
 let containter;
 let operator = ['+','-','*','/'];
 let keys = ['1','2','3','4','5','6','7','8','9','/','*','-','+','.'];
+
 equation[equPos] = 0;
 document.addEventListener('keydown', function (e) {
     const checkKeys = (key) => keys.includes(key);
-    if (checkKeys(e.key)) {
-      addContent(`${e.key}`);
-    }
-    else if (e.key === 'Enter') {
-        equal();
-    }
+    checkKeys(e.key) ? addContent(`${e.key}`) : null;
+    (e.key === 'Enter') ? equal(): null;
   });
 
 function updateDisplay(content) {
