@@ -9,7 +9,7 @@ const NavBar: React.FC = () => {
           <NavLink
             to="/"
             className={({ isActive }) =>
-            isActive ? ' text-green-300 hover:text-green-400' : 'text-white hover:text-white'
+            isActive ? ' text-green-300 hover:text-green-400 active' : 'text-white hover:text-white active'
             }
           >
             Home
