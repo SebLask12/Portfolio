@@ -5,18 +5,18 @@ const HomePage: React.FC = () => {
   return (
     <section className="m-12 p-8">
       <div className="flex">
-        <div className="basis-1/2">
-          <h2 className="text-xl font-bold text-left">
+        <div className="basis-1/2 flex">
+          <h2 className="text-xl font-bold text-left my-auto">
             Hi,
             <br /> My name is
-            <br /> <span className="text-green-500">Sebastian Laskowski</span>
+            <br /> <span className="text-green-400">Sebastian Laskowski</span>
             <br/> Your Web Developer
           </h2>
         </div>
         <div className="basis-1/2 flex justify-center">
           <img
             src={Profilowe}
-            className=" rounded-md h-[12rem] border-solid border-green-500 border-4"
+            className=" rounded-md h-[12rem] border-solid border-green-400 border-4"
           />
         </div>
       </div>

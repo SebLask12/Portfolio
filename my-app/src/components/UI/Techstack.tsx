@@ -5,19 +5,22 @@ import Redux from './../../assets/Redux.svg';
 import Sass from './../../assets/Sass.svg';
 import Tailwind from './../../assets/Tailwind.svg';
 import VSCode from './../../assets/VSCode.svg';
+import React from './../../assets/react.svg';
 
 const Techstack: React.FC = () => {
   return (
     <div className="m-12 p-8">
-      <h3 className='mb-8'>Techstack</h3>
-      <div className=" grid grid-cols-4 gap-8 place-items-center [&>*]:rounded-md [&>*]:p-4">
-        <img src={CSS3} />
-        <img src={HTML5} />
-        <img src={JS} />
-        <img src={Redux} />
-        <img src={Sass} />
-        <img src={Tailwind} />
-        <img src={VSCode} />
+      <h3 className="mb-2 text-xl font-bold text-green-400">Techstack</h3>
+      <p className="mb-6"> Technologies I’ve been working with recently</p>
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 place-items-center [&>*]:rounded-md [&>*]:p-4 [&>*]:drop-shadow-lg [&>*]:cursor-pointer ">
+        <img src={HTML5}  className='transition-all hover:-translate-y-2'/>
+        <img src={CSS3} className='transition-all hover:-translate-y-2'/>
+        <img src={JS} className='transition-all hover:-translate-y-2'/>
+        <img className="w-[9rem] transition-all hover:-translate-y-2" src={React} />
+        <img src={Redux} className='transition-all hover:-translate-y-2'/>
+        <img src={Sass} className='transition-all hover:-translate-y-2'/>
+        <img src={Tailwind}className='transition-all hover:-translate-y-2' />
+        <img src={VSCode} className='transition-all hover:-translate-y-2'/>
       </div>
     </div>
   );
