@@ -3,8 +3,8 @@ import Techstack from '../components/UI/Techstack';
 
 const HomePage: React.FC = () => {
   return (
-    <section className="m-12 p-8">
-      <div className="flex">
+    <section className="m-12">
+      <div className="flex p-8">
         <div className="basis-1/2 flex">
           <h2 className="text-xl font-bold text-left my-auto">
             Hi,
@@ -16,7 +16,7 @@ const HomePage: React.FC = () => {
         <div className="basis-1/2 flex justify-center">
           <img
             src={Profilowe}
-            className=" rounded-md h-[12rem] border-solid border-green-400 border-4"
+            className=" rounded-md h-[12rem] object-cover border-solid border-green-400 border-4"
           />
         </div>
       </div>
