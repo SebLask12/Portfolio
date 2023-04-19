@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 const NavigationList: React.FC = () => {
   return (
-    <ul className="flex text-center basis-1/2 justify-between flex-col [&>*]:my-2 [&>*]:md:my-0">
+    <ul className="flex text-center basis-1/2 justify-between flex-col [&>*]:my-2 [&>*]:md:my-0 border-solid border-neutral-400 bg-neutral-600 z-0">
       <li className="hover:underline transition-all duration-500 hover:scale-110">
         <NavLink
           to="/"

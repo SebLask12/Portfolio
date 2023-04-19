@@ -6,7 +6,8 @@ export default {
       animation: {
         'move-up': 'moveUp .2s ease-in-out forwards',
         'scale-up': 'scaleUp .2s ease-in-out forwards',
-
+        OpenList: 'openList .5s ease-out forwards',
+        CloseList: 'closeList .5s ease-out forwards',
       },
       keyframes: {
         moveUp: {
@@ -15,8 +16,24 @@ export default {
         },
         scaleUp: {
           '0%': { transform: 'scale(1)' },
-          '100%': { transform: 'scale(1.1)'},
-        }
+          '100%': { transform: 'scale(1.1)' },
+        },
+        openList: {
+          '0%': {
+            transform: 'translateY(-100%)',
+          },
+          '100%': {
+            transform: 'translateY(0)',
+          },
+        },
+        closeList: {
+          '0%': {
+            transform: 'translateY(0)',
+          },
+          '100%': {
+            transform: 'translateY(-100%)',
+          },
+        },
       },
     },
   },
