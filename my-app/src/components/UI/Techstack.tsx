@@ -13,14 +13,14 @@ const Techstack: React.FC = () => {
       <h3 className="mb-2 text-xl font-bold text-green-400">Techstack</h3>
       <p className="mb-6"> Technologies I’ve been working with recently</p>
       <div className=" grid grid-flow-col grid-rows-4 sm:grid-rows-3 md:grid-rows-2 lg:grid-rows-1 gap-8 place-items-center [&>*]:rounded-md [&>*]:p-4 [&>*]:drop-shadow-lg [&>*]:cursor-pointer [&>*]:w-[6rem]">
-        <img src={HTML5}  className='transition-all hover:-translate-y-2'/>
-        <img src={CSS3} className='transition-all hover:-translate-y-2'/>
-        <img src={JS} className='transition-all hover:-translate-y-2'/>
-        <img className="transition-all hover:-translate-y-2" src={React} />
-        <img src={Redux} className='transition-all hover:-translate-y-2'/>
-        <img src={Sass} className='transition-all hover:-translate-y-2'/>
-        <img src={Tailwind}className='transition-all hover:-translate-y-2' />
-        <img src={VSCode} className='transition-all hover:-translate-y-2'/>
+        <img src={HTML5}  className='transition-all hover:animate-pulse'/>
+        <img src={CSS3} className='transition-all hover:animate-pulse'/>
+        <img src={JS} className='transition-all hover:animate-pulse'/>
+        <img className="transition-all hover:animate-pulse" src={React} />
+        <img src={Redux} className='transition-all hover:animate-pulse'/>
+        <img src={Sass} className='transition-all hover:animate-pulse'/>
+        <img src={Tailwind}className='transition-all hover:animate-pulse' />
+        <img src={VSCode} className='transition-all hover:animate-pulse'/>
       </div>
     </div>
   );

@@ -8,23 +8,21 @@ import { useMediaQuery } from '@react-hook/media-query';
 import NavigationList from './NavigationList';
 
 const NavBar: React.FC = () => {
-  const [expandList, setExpandList] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const isLargeScreen = useMediaQuery('(min-width: 768px)');
-
+  console.log(isOpen);
   const nodeRef = useRef(null);
 
-  if (expandList && isLargeScreen) {
-    setExpandList(false);
+  if (isOpen && isLargeScreen) {
+    setIsOpen(false);
   }
 
-  const clickHandler = () => {
-    setExpandList(prevState => !prevState);
-  };
+  const genericHamburgerLine = `h-[3px] w-6 my-[3px] rounded-full bg-green-400 transition ease transform duration-300`;
 
   return (
     <>
-      <nav className=" border-solid border-neutral-400 bg-neutral-600 z-10">
-        <div className=" flex justify-between py-6 px-12 text-center ">
+      <nav className=" border-solid border-neutral-400 bg-neutral-600">
+        <div className=" flex justify-between py-6 px-12 text-center z-20 relative">
           <p className=" font-bold text-lg">Sebastian Laskowski</p>
           <ul className=" hidden md:flex basis-1/2 lg:basis-1/3 justify-between flex-col md:flex-row m-4 md:m-0 [&>*]:my-2 [&>*]:md:my-0">
             <li className="hover:underline transition-all duration-500 hover:scale-110">
@@ -32,8 +30,8 @@ const NavBar: React.FC = () => {
                 to="/"
                 className={({ isActive }) =>
                   isActive
-                    ? ' text-green-300 hover:text-green-400 active'
-                    : 'text-white hover:text-white active'
+                    ? ' text-green-300 hover:text-green-500'
+                    : 'text-white hover:text-green-200'
                 }
               >
                 Home
@@ -44,8 +42,8 @@ const NavBar: React.FC = () => {
                 to="/about"
                 className={({ isActive }) =>
                   isActive
-                    ? ' text-green-300 hover:text-green-400'
-                    : 'text-white hover:text-white'
+                    ? ' text-green-300 hover:text-green-500'
+                    : 'text-white hover:text-green-200'
                 }
               >
                 About
@@ -56,8 +54,8 @@ const NavBar: React.FC = () => {
                 to="/projects"
                 className={({ isActive }) =>
                   isActive
-                    ? ' text-green-300 hover:text-green-400'
-                    : 'text-white hover:text-white'
+                    ? ' text-green-300 hover:text-green-500'
+                    : 'text-white hover:text-green-200'
                 }
               >
                 Projects
@@ -68,30 +66,46 @@ const NavBar: React.FC = () => {
                 to="/contact"
                 className={({ isActive }) =>
                   isActive
-                    ? ' text-green-300 hover:text-green-400'
-                    : 'text-white hover:text-white'
+                    ? ' text-green-300 hover:text-green-500'
+                    : 'text-white hover:text-green-200'
                 }
               >
                 Contact
               </NavLink>
             </li>
           </ul>
-          <div
-            onClick={clickHandler}
-            className="md:hidden justify-end my-auto cursor-pointer"
-          >
-            <ul className="flex flex-col [&>*]:w-[25px] [&>*]:h-[3px] [&>*]:m-[2px] [&>*]:bg-green-400">
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
+          <div className="md:hidden">
+            <button
+              className="flex flex-col h-10 w-10 border-2 border-green-400 rounded justify-center items-center group focus:outline-none"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <div
+                className={`${genericHamburgerLine} ${
+                  isOpen
+                    ? 'rotate-45 translate-y-[9px] group-hover:opacity-100'
+                    : 'group-hover:opacity-100'
+                }`}
+              />
+              <div
+                className={`${genericHamburgerLine} ${
+                  isOpen ? 'opacity-0' : 'group-hover:opacity-100'
+                }`}
+              />
+              <div
+                className={`${genericHamburgerLine} ${
+                  isOpen
+                    ? '-rotate-45 -translate-y-[9px] group-hover:opacity-100'
+                    : 'group-hover:opacity-100'
+                }`}
+              />
+            </button>
           </div>
         </div>
       </nav>
       <CSSTransition
         unmountOnExit
         mountOnEnter
-        in={expandList}
+        in={isOpen}
         nodeRef={nodeRef}
         timeout={500}
         classNames={{
@@ -99,7 +113,7 @@ const NavBar: React.FC = () => {
           exit: 'animate-CloseList',
         }}
       >
-        <div className="overflow-hidden -z-10 relative" ref={nodeRef}>
+        <div className="overflow-hidden z-10 absolute w-full" ref={nodeRef}>
           <NavigationList />
         </div>
       </CSSTransition>
