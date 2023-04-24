@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 const NavigationList: React.FC = () => {
   return (
     <ul className="flex text-center basis-1/2 justify-between flex-col [&>*]:my-2 [&>*]:md:my-0 border-solid border-neutral-400 bg-neutral-600 z-0">
-      <li className="hover:underline transition-all duration-500 hover:scale-110">
+      <li className="hover:underline transition-all hover:scale-110">
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -15,7 +15,7 @@ const NavigationList: React.FC = () => {
           Home
         </NavLink>
       </li>
-      <li className="hover:underline transition-all duration-500 hover:scale-110">
+      <li className="hover:underline transition-all hover:scale-110">
         <NavLink
           to="/about"
           className={({ isActive }) =>
@@ -27,7 +27,7 @@ const NavigationList: React.FC = () => {
           About
         </NavLink>
       </li>
-      <li className="hover:underline transition-all duration-500 hover:scale-110">
+      <li className="hover:underline transition-all hover:scale-110">
         <NavLink
           to="/projects"
           className={({ isActive }) =>
@@ -39,7 +39,7 @@ const NavigationList: React.FC = () => {
           Projects
         </NavLink>
       </li>
-      <li className="hover:underline transition-all duration-500 hover:scale-110">
+      <li className="hover:underline transition-all hover:scale-110">
         <NavLink
           to="/contact"
           className={({ isActive }) =>
