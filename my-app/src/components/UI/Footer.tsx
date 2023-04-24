@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
             </a>
           </li>
           <li>
-            Number: <a href="tel:697782857" className='text-green-400 active:text-green-700 group-hover:scale-110 inline-block hover:scale-110 transition-all hover:bg-neutral-700 hover:rotate-3'>697-782-857</a>
+            Number: <a href="tel:697782857" className='text-green-400 active:text-green-700 inline-block hover:scale-110 transition-all hover:bg-neutral-700 hover:rotate-3'>697-782-857</a>
           </li>
         </ul>
 
