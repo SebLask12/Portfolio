@@ -4,7 +4,7 @@ import Linkedin from '../../assets/Linkedin.svg';
 const Footer: React.FC = () => {
   return (
     <footer className="static px-12 py-8 bg-neutral-800 w-full flex flex-col lg:flex-row ">
-      <div className="basis-1/2 flex order-1 lg:order-2 justify-between lg:basis-full mb-8 lg:mb-0">
+      <div className="sm:basis-1/2 sm:flex order-1 lg:order-2 sm:justify-between lg:basis-full mb-8 lg:mb-0">
         <ul>
           <li>
             Email:{' '}
@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
           </li>
         </ul>
 
-        <ul className="flex justify-between basis-1/5">
+        <ul className="flex w-1/3 sm:w-auto mt-6 sm:mt-0 mx-auto sm:mx-0 sm:justify-between sm:basis-1/5">
           <li className="m-auto">
             <a href="https://github.com/SebLask12">
               <img src={GitHub} className=" w-8 transition-all hover:-translate-y-2"></img>

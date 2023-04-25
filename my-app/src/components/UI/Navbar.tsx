@@ -17,14 +17,18 @@ const NavBar: React.FC = () => {
     setIsOpen(false);
   }
 
+  const onCloseHandler = () => {
+    setIsOpen(false);
+  }
+
   const genericHamburgerLine = `h-[3px] w-6 my-[3px] rounded-full bg-green-400 transition ease transform duration-300`;
 
   return (
     <>
-      <nav className=" border-solid border-neutral-400 bg-neutral-600">
-        <div className=" flex justify-between py-6 px-12 text-center z-20 relative">
-          <p className=" font-bold text-lg">Sebastian Laskowski</p>
-          <ul className=" hidden md:flex basis-1/2 lg:basis-1/3 justify-between flex-col md:flex-row m-4 md:m-0 [&>*]:my-2 [&>*]:md:my-0">
+      <nav className=" border-solid ">
+        <div className=" flex justify-between py-4 px-12 text-center relative z-20 border-neutral-400 bg-neutral-600">
+          <p className=" font-bold text-lg flex align-middle p-2">Sebastian Laskowski</p>
+          <ul className=" hidden md:flex basis-1/2 lg:basis-1/3 justify-between flex-col md:flex-row m-4 md:m-0 [&>*]:my-2 [&>*]:md:my-0 [&>li>a]:align-middle">
             <li className="hover:underline transition-all duration-500 hover:scale-110">
               <NavLink
                 to="/"
@@ -101,8 +105,7 @@ const NavBar: React.FC = () => {
             </button>
           </div>
         </div>
-      </nav>
-      <CSSTransition
+        <CSSTransition
         unmountOnExit
         mountOnEnter
         in={isOpen}
@@ -114,9 +117,11 @@ const NavBar: React.FC = () => {
         }}
       >
         <div className="overflow-hidden z-10 absolute w-full" ref={nodeRef}>
-          <NavigationList />
+          <NavigationList onClose={onCloseHandler}/>
         </div>
       </CSSTransition>
+      </nav>
+      
     </>
   );
 };

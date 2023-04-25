@@ -3,7 +3,7 @@ import Techstack from '../components/UI/Techstack';
 
 const HomePage: React.FC = () => {
   return (
-    <section className="p-12">
+    <section>
       <div className="flex p-8">
         <div className="basis-1/2 flex">
           <h2 className="text-xl font-bold text-left my-auto">

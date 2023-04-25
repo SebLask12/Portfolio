@@ -20,21 +20,21 @@ export default {
         },
         openList: {
           '0%': {
-            opacity: '0',
+            // opacity: '0',
             transform: 'translateY(-100%)',
           },
           '100%': {
-            opacity:'1',
+            // opacity:'1',
             transform: 'translateY(0)',
           },
         },
         closeList: {
           '0%': {
-            opacity:'1',
+            // opacity:'1',
             transform: 'translateY(0)',
           },
           '100%': {
-            opacity:'0',
+            // opacity:'0',
             transform: 'translateY(-100%)',
           },
         },
