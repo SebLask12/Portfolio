@@ -3,7 +3,7 @@ import Linkedin from '../../assets/Linkedin.svg';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="static px-12 py-8 bg-neutral-800 w-full flex flex-col lg:flex-row ">
+    <footer className="static px-6 md:px-12 py-8 bg-neutral-800 w-full flex flex-col lg:flex-row ">
       <div className="sm:basis-1/2 sm:flex order-1 lg:order-2 sm:justify-between lg:basis-full mb-8 lg:mb-0">
         <ul>
           <li>

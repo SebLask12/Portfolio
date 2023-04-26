@@ -12,7 +12,7 @@ const RootLayout: React.FC<Props> = ({children}) => {
   return (
     <>
       <NavBar />
-      <main className=' min-h-[calc(100vh-188px)] max-w-[60rem] mx-auto'>{children}</main>
+      <main className=' min-h-[calc(100vh-188px)] max-w-[60rem] mx-auto p-8'>{children}</main>
         {/* <SwitchTransition>
           <CSSTransition
             key={location.pathname}

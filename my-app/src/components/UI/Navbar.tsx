@@ -26,7 +26,7 @@ const NavBar: React.FC = () => {
   return (
     <>
       <nav className=" border-solid ">
-        <div className=" flex justify-between py-4 px-12 text-center relative z-20 border-neutral-400 bg-neutral-600">
+        <div className=" flex justify-between py-4 px-6 md:px-12 text-center relative z-20 border-neutral-400 bg-neutral-600">
           <p className=" font-bold text-lg flex align-middle p-2">Sebastian Laskowski</p>
           <ul className=" hidden md:flex basis-1/2 lg:basis-1/3 justify-between flex-col md:flex-row [&>li]:my-auto">
             <li className="hover:underline transition-all duration-500 hover:scale-110">
