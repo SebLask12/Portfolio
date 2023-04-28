@@ -22,7 +22,7 @@ const ProjectsLayout: React.FC = () => {
           altImage="Restaurant preview"
           linkCode="https://github.com/SebLask12/RestaurantSite"
           linkLivePreview="https://seblask12.github.io/RestaurantSite/"
-          techStack="HTML, Sass"
+          techStack="HTML, Sass, JavaScript"
         />
         <ProjectCart
           title="Weather Observer"

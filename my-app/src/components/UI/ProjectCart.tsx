@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 
-import ChainImg from './../../assets/chain.svg';
-import GithubImg from './../../assets/github-black.png';
+import ChainImg from './../../assets/attach.svg';
+import GithubImg from './../../assets/github-mark-white.svg';
 
 const LazyImage = lazy(async () => {
   const { default: module } = await import('./Img');
@@ -28,7 +28,7 @@ const ProjectCart: React.FC<Props> = ({
   techStack,
 }) => {
   return (
-    <li className=" basis-2/5 rounded-2xl bg-neutral-600 shadow-2xl relative">
+    <li className=" basis-2/5 rounded-2xl bg-neutral-600 shadow-2xl flex flex-col justify-between">
       <div className="h-[15rem] overflow-hidden">
         <Suspense fallback={<div>Loading...</div>}>
           <LazyImage
@@ -44,8 +44,8 @@ const ProjectCart: React.FC<Props> = ({
       <ul className="flex flex-row [&>li]:basis-1/2 [&>li>a]:underline p-4 text-sm gap-6">
         <li>
           <a href={linkCode} className="flex items-center justify-center">
-            <img src={ChainImg} />
-            &nbsp;View Code
+            <img src={GithubImg} className='w-5 h-5 mr-2'/>
+            View Code
           </a>
         </li>{' '}
         <li>
@@ -53,8 +53,8 @@ const ProjectCart: React.FC<Props> = ({
             href={linkLivePreview}
             className="flex items-center justify-center"
           >
-            <img src={GithubImg} className="w-5 h-5" />
-            &nbsp;Live Preview
+            <img src={ChainImg} className="w-6 h-6 mr-2 bg-white rounded-full text-white" />
+            Live Preview
           </a>
         </li>
       </ul>
