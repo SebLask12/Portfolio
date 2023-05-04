@@ -12,22 +12,7 @@ const RootLayout: React.FC<Props> = ({children}) => {
   return (
     <>
       <NavBar />
-      <main className=' min-h-[calc(100vh-188px)] max-w-[60rem] mx-auto p-8'>{children}</main>
-        {/* <SwitchTransition>
-          <CSSTransition
-            key={location.pathname}
-            nodeRef={nodeRef}
-            timeout={300}
-            classNames="page"
-            unmountOnExit
-          >
-            {(state) => (
-              <div ref={nodeRef} className="page">
-                <Outlet/>
-              </div>
-            )}
-          </CSSTransition>
-        </SwitchTransition> */}
+      <main className=' min-h-[calc(100vh-188px)] max-w-[60rem] mx-auto md:p-8'>{children}</main>
       <Footer/>
 
     </>

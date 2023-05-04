@@ -8,7 +8,7 @@ import WeatherImg from './../../assets/WeatherObserver.png';
 
 const ProjectsLayout: React.FC = () => {
   return (
-    <div className="text-center">
+    <div className="text-center p-6">
       <SectionTitle title="Portfolio" />
       <br />
       Each project is a unique piece of development 🧩
