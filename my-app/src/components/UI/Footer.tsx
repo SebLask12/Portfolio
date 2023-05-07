@@ -8,24 +8,41 @@ const Footer: React.FC = () => {
         <ul>
           <li>
             Email:{' '}
-            <a href="mailto:sebastian.laskowski15@gmail.com" className='text-green-400 active:text-green-700 inline-block hover:scale-110 transition-all hover:bg-neutral-700 hover:rotate-3'>
+            <a
+              href="mailto:sebastian.laskowski15@gmail.com"
+              className="text-green-400 active:text-green-700 inline-block hover:scale-110 transition-all hover:bg-neutral-700 hover:rotate-3"
+            >
               sebastian.laskowski15@gmail.com
             </a>
           </li>
           <li>
-            Phone: <a href="tel:697782857" className='text-green-400 active:text-green-700 inline-block hover:scale-110 transition-all hover:bg-neutral-700 hover:rotate-3'>697-782-857</a>
+            Phone:{' '}
+            <a
+              href="tel:697782857"
+              className="text-green-400 active:text-green-700 inline-block hover:scale-110 transition-all hover:bg-neutral-700 hover:rotate-3"
+            >
+              697-782-857
+            </a>
           </li>
         </ul>
 
-        <ul className="sm:flex w-1/3 sm:w-auto mt-6 sm:mt-0 mx-auto sm:mx-0 sm:justify-between sm:basis-1/5">
+        <ul className="flex sm:w-auto mt-6 sm:mt-0 mx-auto sm:mx-0 sm:justify-between sm:basis-1/5">
           <li className="m-auto">
             <a href="https://github.com/SebLask12">
-              <img src={GitHubIcon} className="w-8 transition-all hover:-translate-y-2" alt="GitHub icon" />
+              <img
+                src={GitHubIcon}
+                className="w-9 transition-all hover:-translate-y-2"
+                alt="GitHub icon"
+              />
             </a>
           </li>
           <li className="m-auto">
-            <a href="https://www.linkedin.com/in/sebastian-laskowski/" >
-              <img src={LinkedinIcon} className="w-8 transition-all hover:-translate-y-2" alt="LinkedIn icon" />
+            <a href="https://www.linkedin.com/in/sebastian-laskowski/">
+              <img
+                src={LinkedinIcon}
+                className="w-9 transition-all hover:-translate-y-2"
+                alt="LinkedIn icon"
+              />
             </a>
           </li>
         </ul>

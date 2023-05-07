@@ -36,7 +36,7 @@ const NavBar = () => {
           ].map(({ to, label }) => (
             <li
               key={to}
-              className="hover:underline transition-all duration-500 hover:scale-110"
+              className="hover:underline transition-all duration-200 hover:scale-110"
             >
               <NavLink
                 to={to}

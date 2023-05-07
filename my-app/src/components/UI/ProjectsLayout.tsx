@@ -1,4 +1,3 @@
-import { lazy, Suspense } from 'react';
 import SectionTitle from './SectionTitle';
 
 import ProjectCart from './ProjectCart';
@@ -22,7 +21,7 @@ const ProjectsLayout: React.FC = () => {
           altImage="Restaurant preview"
           linkCode="https://github.com/SebLask12/RestaurantSite"
           linkLivePreview="https://seblask12.github.io/RestaurantSite/"
-          techStack="HTML, Sass, JavaScript"
+          techStack={['HTML', 'Sass', 'Javascript']}
         />
         <ProjectCart
           title="Weather Observer"
@@ -31,7 +30,7 @@ const ProjectsLayout: React.FC = () => {
           altImage="Weather Observer Preview"
           linkCode="https://github.com/SebLask12/aplikaja-pogodowa"
           linkLivePreview="https://warm-dodol-729200.netlify.app/"
-          techStack="HTML, CSS, React, useContext"
+          techStack={['HTML', 'CSS', 'React', 'useContext']}
         />
         <ProjectCart
           title="Restaurant"
@@ -42,7 +41,7 @@ const ProjectsLayout: React.FC = () => {
           altImage="Restaurant preview"
           linkCode="#"
           linkLivePreview="#"
-          techStack="HTML, Sass"
+          techStack={['HTML', 'Sass']}
         />
       </ul>
     </div>

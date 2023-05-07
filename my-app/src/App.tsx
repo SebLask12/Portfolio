@@ -1,53 +1,79 @@
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import { createRef, useEffect } from 'react';
-import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import { lazy, Suspense } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import './index.css';
-
 import RootLayout from './components/UI/RootLayout';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/About';
-import ProjectsPage from './pages/Projects';
-import ProjectDetailPage from './pages/ProjectDetail';
-import ProjectsLayout from './components/UI/ProjectsLayout';
-import ContactPage from './pages/Contact';
+
+const HomePage = lazy(() => import('./pages/HomePage'));
+const AboutPage = lazy(() => import('./pages/About'));
+const ProjectsPage = lazy(() => import('./pages/Projects'));
+const ProjectDetailPage = lazy(() => import('./pages/ProjectDetail'));
+const ProjectsLayout = lazy(() => import('./components/UI/ProjectsLayout'));
+const ContactPage = lazy(() => import('./pages/Contact'));
+
+const routes = [
+  {
+    path: '/',
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <HomePage />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/about',
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <AboutPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/projects',
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <ProjectsLayout />
+          </Suspense>
+        ),
+        children: [
+          {
+            index: true,
+            element: (
+              <Suspense fallback={<p>Loading...</p>}>
+                <ProjectsPage />
+              </Suspense>
+            ),
+          },
+          {
+            path: ':id',
+            element: (
+              <Suspense fallback={<p>Loading...</p>}>
+                <ProjectDetailPage />
+              </Suspense>
+            ),
+          },
+        ],
+      },
+      {
+        path: '/contact',
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <ContactPage />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+];
+
+const router = createBrowserRouter(routes);
 
 function App() {
-  return (
-    <BrowserRouter>
-      <RootLayout>
-        <PageTransition />
-      </RootLayout>
-    </BrowserRouter>
-  );
-}
-
-function PageTransition() {
-  const location = useLocation();
-  const nodeRef = createRef<HTMLDivElement>();
-
-  return (
-    <SwitchTransition mode="out-in">
-      <CSSTransition
-        key={location.pathname}
-        classNames="page"
-        timeout={500}
-        nodeRef={nodeRef}
-      >
-        <div ref={nodeRef}>
-          <Routes location={location}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/projects" element={<ProjectsLayout />}>
-              <Route index element={<ProjectsPage />} />
-              <Route path=":id" element={<ProjectDetailPage />} />
-            </Route>
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
-        </div>
-      </CSSTransition>
-    </SwitchTransition>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

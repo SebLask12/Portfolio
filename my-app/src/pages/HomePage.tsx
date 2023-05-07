@@ -1,5 +1,6 @@
-import Profilowe from './../assets/logo_czarne_AI.jpg';
+import { lazy, Suspense } from 'react';
 import Techstack from '../components/UI/Techstack';
+import Profilowe from '../assets/logo_czarne_AI.jpg';
 
 const HomePage: React.FC = () => {
   return (
@@ -20,10 +21,12 @@ const HomePage: React.FC = () => {
           </p>
         </div>
         <div className="basis-1/2 flex justify-center order-1 md:order-2">
-          <img
-            src={Profilowe}
-            className=" rounded-md h-[12rem] object-cover border-solid border-green-400 border-4 hover:scale-110 transition-transform"
-          />
+          <Suspense fallback={<p>Loading...</p>}>
+            <img
+              src={Profilowe}
+              className =" rounded-md h-[12rem] object-cover border-solid border-green-400 border-4 hover:scale-110 transition-transform"
+            />
+          </Suspense>
         </div>
       </div>
       <Techstack />

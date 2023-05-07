@@ -1,7 +1,6 @@
 import { lazy, Suspense } from 'react';
 import ChainImg from './../../assets/attach.svg';
 import GithubImg from './../../assets/github-mark-white.svg';
-import Img from './Img';
 
 const LazyImage = lazy(() => import('./Img'));
 
@@ -12,7 +11,7 @@ type Props = {
   altImage: string;
   linkCode: string;
   linkLivePreview: string;
-  techStack: string;
+  techStack: string[];
 };
 
 const ProjectCart: React.FC<Props> = ({
@@ -29,22 +28,38 @@ const ProjectCart: React.FC<Props> = ({
       <div className="h-[15rem] overflow-hidden">
         <a href={linkLivePreview} className="flex items-center justify-center">
           <Suspense fallback={<div>Loading...</div>}>
-            <LazyImage src={imagePath} alt={altImage} style="rounded-t-2xl h-100" />
+            <LazyImage
+              src={imagePath}
+              alt={altImage}
+              style="rounded-t-2xl h-100"
+            />
           </Suspense>
         </a>
       </div>
       <h3 className="text-bold text-xl pt-4">{title}</h3>
       <p className="text-sm text-justify p-4">{description}</p>
-      <p className="p-4 text-sm">Tech Stack: {techStack}</p>
+      <div className="py-2 text-sm">
+        {techStack.map(tech => (
+          <div className="inline-block m-1 p-1 border-2 border-green-500 shadow-lg hover:text-green-500" key={tech}>
+            {tech}
+          </div>
+        ))}
+      </div>
       <ul className="flex flex-row [&>li]:basis-1/2 [&>li>a]:underline p-4 text-sm gap-6 ">
         <li className="flex items-center justify-center">
-          <a href={linkCode} className="flex items-center justify-center underline">
+          <a
+            href={linkCode}
+            className="flex items-center justify-center underline"
+          >
             <img src={GithubImg} className="w-5 h-5 mr-2" alt="GitHub icon" />
             View Code
           </a>
         </li>
         <li className="flex items-center justify-center">
-          <a href={linkLivePreview} className="flex items-center justify-center underline">
+          <a
+            href={linkLivePreview}
+            className="flex items-center justify-center underline"
+          >
             <img src={ChainImg} className="w-6 h-6 mr-2" alt="Chain icon" />
             Live Preview
           </a>
