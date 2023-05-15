@@ -1,5 +1,5 @@
 import SectionTitle from '../components/UI/SectionTitle';
-
+// zmiana 1
 const AboutPage: React.FC = () => {
   return (
     <section className="text-center p-6">
