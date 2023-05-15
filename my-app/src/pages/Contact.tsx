@@ -1,5 +1,5 @@
 import React from 'react';
-
+// zmiana 2
 import SectionTitle from '../components/UI/SectionTitle';
 import ContactMethod from '../components/UI/ContactMethod';
 import FormMessage from '../components/UI/FormMessage';
