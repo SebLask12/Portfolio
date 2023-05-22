@@ -1,222 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="shortcut icon" type="image/ico" href="/img/favicon.ico" />
-
-        <link
-            href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="styles/main.css" />
-        <title>Portfolio | Sebastian Laskowski</title>
-        <script src="script/script.js" defer></script>
-    </head>
-    <body>
-        <div class="navigation">
-            <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
-            <label for="navi-toggle" class="navigation__button"><span class="navigation__icon"></span></label>
-            <div class="navigation__background">&nbsp;</div>
-            <nav class="navigation__nav">
-                <ul class="navigation__list">
-                    <li class="navigation__item"><a href="#section-about" class="navigation__link u-pointerEvent"><span>01. Description</span></a></li>
-                    <li class="navigation__item"><a href="#section-skills" class="navigation__link u-pointerEvent"><span>02. Skills</span></a></li>
-                    <li class="navigation__item"><a href="#section-apps" class="navigation__link u-pointerEvent"><span>03. Apps</span></a></li>
-                    <li class="navigation__item"><a href="#footer" class="navigation__link u-pointerEvent"><span>04. Footer</span></a></li>
-                </ul>
-            </nav>
-        </div>
-        <header class="header">
-            <div class="header__logo-box">
-                <img src="img/logo_czarne_AI.jpg" alt="Logo Sebastian Laskowski" class="header__logo">
-            </div>
-            <div class="header__text-box">
-                <h1 class="heading-primary">
-                    <span class="heading-primary--main">
-                        Sebastian Laskowski
-                    </span>
-                    <span class="heading-primary--sub">
-                        Web portfolio
-                    </span>
-                </h1> 
-            </div>
-
-        </header>
-        <main>
-
-            <section class="section-about" id="section-about">
-                <div class="u-center-text u-margin-bottom-big">
-                    <div class="heading-secondary">
-                        About ...
-                    </div>
-                </div>
-                <div class="paragraph">
-                    <span class="u-80vw">This page was written by Sebastian Laskowski. I want to become a Front Web Developer and in the future a Full Stack Developer. Here you will find a collection of applications that I wrote during the learning process. I am a graduate of the Technical School of Computer Science, currently studying Automation and Robotics at Kielce University of Technology, and working as a PLC and C programmer. In the meantime, I am learning web programming including HTML, Sass and JavaScript. I have completed an advanced CSS and Sass course <a class="link" href="https://www.udemy.com/certificate/UC-8b5b89d1-4943-4c79-b599-5280c7fdb8fd/">(link)</a>, and am in the middle of a JavaScript course <a class="link" href="https://www.udemy.com/course/the-complete-javascript-course/">(link)</a>. Currently, the most developed application by me is Mapty. I have learned how to use Classes (ES6+), prototypes, array manipulation, I am also learning React technology, and in the future I want to develop skills related to writing Backend.</span>
-                </div>
-            </section>
-
-            <section class="section-skills u-margin-bottom-small" id="section-skills">
-                <div class="row">
-                    <div class="col-1-of-4">
-                        <div class="skills-box">
-                        <h3 class="heading-tertiary u-margin-bottom-small">HTML 5</h3>
-                            <img src="img/HTML5.png" alt="JS_logo" class="skills-box__image u-margin-bottom-small">
-                        </div>
-                    </div>
-                    <div class="col-1-of-4">
-                        <div class="skills-box">
-                            <h3 class="heading-tertiary u-margin-bottom-small">CSS 3</h3>
-                            <img src="img/CSS3_logo.svg.png" alt="CSS3 logo" class="skills-box__image u-margin-bottom-small">
-                        </div>
-                    </div>
-                    <div class="col-1-of-4">
-                        <div class="skills-box">
-                            <h3 class="heading-tertiary u-margin-bottom-small">Sass</h3>
-                            <img src="img/logo-sass.svg" alt="Sass logo" class="skills-box__image u-margin-bottom-small">
-                        </div>
-                    </div>
-                    <div class="col-1-of-4">
-                        <div class="skills-box">
-                            <h3 class="heading-tertiary u-margin-bottom-small">JavaScript</h3>
-                            <img src="img/JS_logo.png" alt="JS logo" class="skills-box__image u-margin-bottom-small">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-apps" id="section-apps">
-
-                <div class="u-center-text u-margin-bottom-big">
-                    <h2 class="heading-secondary">
-                        Apps
-                    </h2>
-                </div>
-
-                <div class="row">
-                    <div class="apps">
-                        <figure class="apps__shape">
-                            <img src="img/icon_mapty.png" alt="Restaurant image" class="apps__img">
-                        </figure>
-                        <div class="apps__text">
-                            <h3 class="heading-tertiary u-margin-bottom-small">Mapty App</h3>
-                            <p class="u-margin-bottom-small">
-                                Mapty is an application written in JavaScript that allows the user as a recorder of exercises performed. To begin, you must allow your browser to access the location. Then you can click on the map at the location you want to record. The completed form is approved with the enter button. The application also allows you to edit, delete and sort exercises. The exercise log is stored in the browser's local memory.
-                            </p>
-                            <div class="apps__box">
-                                <a href="apps/mapty/index.html" class="btn btn--green">Mapty App</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="apps">
-                        <figure class="apps__shape">
-                            <img src="img/restaurant2.png" alt="JS_logo" class="apps__img">
-                        </figure>
-                        <div class="apps__text">
-                            <h3 class="heading-tertiary u-margin-bottom-small">Restaurant Web</h3>
-                            <p class="u-margin-bottom-small">
-                                Restaurant web is an example of a restaurant website with a banner that scrolls across the width of the screen, this site has a scrolling slider with a function to scroll automatically every specified time or manually. This site has the features of a fully responsive web site. The site is built using HTML, SCSS, SWIPER.
-                            </p>
-                            <div class="apps__box">
-                                <a href="https://seblask12.github.io/RestaurantSite/" class="btn btn--green">Restaurant Web</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="apps">
-                        <figure class="apps__shape">
-                            <img src="img/guess.png" alt="Guess game" class="apps__img">
-                        </figure>
-                        <div class="apps__text">
-                            <h3 class="heading-tertiary u-margin-bottom-small">Guess Number</h3>
-                            <p class="u-margin-bottom-small">
-                                The Guess Number application is a game in which the user points to a drawn number between 0 and 20. The application is written In HTML, CSS and JavaScript
-                            </p>
-                            <div class="apps__box">
-                                <a href="apps/guess_number/guess_number.html" class="btn btn--green">Guess Number</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="apps">
-                        <figure class="apps__shape">
-                            <img src="img/bank.png" alt="Bank" class="apps__img">
-                            
-                        </figure>
-                        <div class="apps__text">
-                            <h3 class="heading-tertiary u-margin-bottom-small">Bank</h3>
-                            <p class="u-margin-bottom-small">
-                                The banking application mainly relies on board manipulation. Each new user is created by the constructor and modification of the arrays is done through appropriate methods. In addition, in the application can make transfers between users and sort their expenses. In case of inactivity, the user is automatically logged out.
-                            </p>
-                            <div class="apps__box">
-                                <a href="apps/bank/bank.html" class="btn btn--green">Bank</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="apps">
-                        <figure class="apps__shape">
-                            <img src="img/calculator.png" alt="calculator" class="apps__img">
-                            
-                        </figure>
-                        <div class="apps__text">
-                            <h3 class="heading-tertiary u-margin-bottom-small">Calculator</h3>
-                            <p class="u-margin-bottom-small">
-                                A calculator written in JavaScript using common functions. The values from the buttons are read through a function, called when the corresponding key is pressed and the argument is referenced.
-                            </p>
-                            <div class="apps__box">
-                                <a href="calculator.html" class="btn btn--green">Calculator</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="apps">
-                        <figure class="apps__shape">
-                            <img src="img/pig.png" alt="Pig game" class="apps__img">
-                            
-                        </figure>
-                        <div class="apps__text">
-                            <h3 class="heading-tertiary u-margin-bottom-small">Pig Game</h3>
-                            <p class="u-margin-bottom-small">
-                                Pig Game is a game in which two players draw dice, thus scoring points. When the user draws one eye, he loses a turn and the turn goes to his opponent. Whoever collects 100 points first wins. The functionality of the application is provided by JavaScript
-                            </p>
-                            <div class="apps__box">
-                                <a href="apps/pig/pig_game.html" class="btn btn--green">Pig Game</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <footer class="footer" id="footer">
-            <div class="footer__logo-box">
-                <img src="img/logo_czarne_AI.jpg" alt="" class="footer__logo">
-            </div>
-            <div class="row">
-                <div class="col-1-of-2 footer__copyright">
-                    <ul class="footer__list">
-                        <li class="footer__item">CONTACT:</li>
-                        <li class="footer__item">sebastian.laskowski15@gmail.com</li>
-                        <li class="footer__item"><a class="footer__link" href="https://www.linkedin.com/in/sebastian-laskowski">LinkedIn</a></li>
-                        <li class="footer__item"><a class="footer__link" href="https://github.com/SebLask12">GitHub</a></li>
-                        
-                    </ul>
-                </div>
-                <div class="col-1-of-2 footer__copyright">Written by <span class="footer__author">Sebastian Laskowski</span> 2023<br>
-
-            </div>
-        </footer>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/fav.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sebastian Laskowski | Front-end</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
