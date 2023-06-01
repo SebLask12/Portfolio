@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { useMediaQuery } from '@react-hook/media-query';
 import NavigationList from './NavigationList';
+import Button from './Button';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,30 +28,27 @@ const NavBar = () => {
         <Link to="/" className="font-bold text-lg flex align-middle p-2">
           Sebastian Laskowski
         </Link>
-        <ul className="hidden md:flex basis-1/2 lg:basis-1/3 justify-between flex-col md:flex-row [&>li]:my-auto">
+        <div className="hidden md:flex basis-1/2 lg:basis-1/3 justify-between flex-col md:flex-row [&>li]:my-auto">
           {[
             { to: '/', label: 'Home' },
             { to: '/about', label: 'About' },
             { to: '/projects', label: 'Projects' },
             { to: '/contact', label: 'Contact' },
           ].map(({ to, label }) => (
-            <li
-              key={to}
-              className="hover:underline transition-all duration-200 hover:scale-110"
-            >
               <NavLink
-                to={to}
-                className={({ isActive }) =>
-                  isActive
-                    ? 'text-green-300 hover:text-green-500'
-                    : 'text-white hover:text-green-200'
+              to={to}
+              className={({ isActive }) =>
+                isActive
+                  ? ` underline `
+                  : ` `
                 }
-              >
+            >
+              <Button size={'big'}>
                 {label}
+              </Button>
               </NavLink>
-            </li>
           ))}
-        </ul>
+        </div>
         <div className="md:hidden">
           <button
             className="flex flex-col h-10 w-10 border-2 border-green-400 rounded justify-center items-center group focus:outline-none"

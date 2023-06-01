@@ -28,11 +28,11 @@
 
 @keyframes slideUp {
   0% {
-    transform: translateY(10%);
+    /* transform: translateY(10%); */
     opacity: 0;
   }
   100% {
-    transform: translateY(0);
+    /* transform: translateY(0); */
     opacity: 1;
   }
 }
@@ -42,7 +42,7 @@
 }
 .fade-enter-active {
   opacity: 1;
-  animation: slideUp 1s ease;
+  animation: slideUp .5s ease;
 }
 .fade-exit {
   opacity: 1;
@@ -50,7 +50,6 @@
 .fade-exit-active {
   opacity: 0;
 }
-
 
 .card {
   padding: 2em;

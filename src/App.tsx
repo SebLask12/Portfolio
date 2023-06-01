@@ -4,11 +4,9 @@ import './App.css';
 import './index.css';
 import RootLayout from './components/UI/RootLayout';
 
-const HomePage = lazy(() => import('./pages/HomePage'));
+const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
-const ProjectsPage = lazy(() => import('./pages/Projects'));
-const ProjectDetailPage = lazy(() => import('./pages/ProjectDetail'));
-const ProjectsLayout = lazy(() => import('./components/UI/ProjectsLayout'));
+const ProjectsLayout = lazy(() => import('./pages/Projects'));
 const ContactPage = lazy(() => import('./pages/Contact'));
 
 const routes = [
@@ -39,24 +37,6 @@ const routes = [
             <ProjectsLayout />
           </Suspense>
         ),
-        children: [
-          {
-            index: true,
-            element: (
-              <Suspense>
-                <ProjectsPage />
-              </Suspense>
-            ),
-          },
-          {
-            path: ':id',
-            element: (
-              <Suspense>
-                <ProjectDetailPage />
-              </Suspense>
-            ),
-          },
-        ],
       },
       {
         path: '/contact',
