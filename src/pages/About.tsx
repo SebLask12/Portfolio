@@ -2,8 +2,54 @@ import SectionTitle from '../components/UI/SectionTitle';
 import FadeInOnMount from '../components/UI/FadeInMount';
 
 const AboutPage: React.FC = () => {
+  const jobs = [
+    {
+      jobTitle: 'Programmer PLC, C , C++',
+      jobDescription: 'in ROMER PP. (04.2022—present, 1 year)',
+      responsibilities: [
+        { title: 'Developing PLC Program, Testing and debugging' },
+        { title: 'Collaborating with other engineers' },
+        { title: 'Documenting' },
+        { title: 'Troubleshooting' },
+        { title: 'Providing technical support' },
+        { title: 'Research and development' },
+      ],
+    },
+  ];
+
+  const jobsDecription = (
+    jobs: {
+      jobTitle: string;
+      jobDescription: string;
+      responsibilities: { title: string }[];
+    }[]
+  ) => {
+    return (
+      <>
+        {jobs.map(job => {
+          return (
+            <>
+              <h4 className="font-bold py-2">
+                {jobs[0].jobTitle}
+                <span className="font-normal">
+                  &nbsp;{jobs[0].jobDescription}
+                </span>
+              </h4>
+              <p>Responsibilities:</p>
+              <ul className="[&>li]:pl-4 list-none [&>li]:before:pr-2 [&>li]:before:content-['✅']">
+                {jobs[0].responsibilities.map(responsibility => {
+                  return <li>{responsibility.title}</li>;
+                })}
+              </ul>
+            </>
+          );
+        })}
+      </>
+    );
+  };
+
   return (
-<FadeInOnMount>
+    <FadeInOnMount>
       <section className="text-center p-6">
         <SectionTitle title="About Me" />
         <p>
@@ -16,21 +62,7 @@ const AboutPage: React.FC = () => {
         <div className="text-left">
           <h3 className="text-lg mt-6">Work Experience</h3>
           <div className="w-100 h-1 bg-black rounded-xl" />
-          <h4 className="font-bold py-2">
-            Programmer PLC, C , C++
-            <span className="font-normal">
-              &nbsp;in ROMER PP. (04.2022—present, 1 year)
-            </span>
-          </h4>
-          <p>Responsibilities:</p>
-          <ul className="[&>li]:pl-4 list-none [&>li]:before:pr-2 [&>li]:before:content-['✅']">
-            <li>Developing PLC Program, Testing and debugging</li>
-            <li>Collaborating with other engineers</li>
-            <li>Documenting</li>
-            <li>Troubleshooting</li>
-            <li>Providing technical support</li>
-            <li>Research and development</li>
-          </ul>
+          {jobsDecription(jobs)}
           <h4 className="text-lg mt-6">Education</h4>
           <div className="w-100 h-1 bg-black rounded-xl" />
           <h4 className="py-2">
@@ -61,7 +93,7 @@ const AboutPage: React.FC = () => {
           ...
         </div>
       </section>
-      </FadeInOnMount>
+    </FadeInOnMount>
   );
 };
 
