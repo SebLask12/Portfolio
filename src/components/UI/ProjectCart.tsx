@@ -1,9 +1,9 @@
 import { lazy, Suspense } from 'react';
 import ChainImg from './../../assets/attach.svg';
 import GithubImg from './../../assets/github-mark-white.svg';
-import Button from './Button';
+import Button from '../elements/Button';
 
-const LazyImage = lazy(() => import('./Img'));
+const LazyImage = lazy(() => import('../elements/Img'));
 
 type Props = {
   title: string;
@@ -39,9 +39,9 @@ const ProjectCart: React.FC<Props> = ({
       </div>
       <h3 className="text-bold text-xl pt-4">{title}</h3>
       <p className="text-sm text-justify p-4">{description}</p>
-      <div className="py-2 text-sm flex justify-center gap-2">
+      <div className="p-2  text-sm flex justify-center gap-2 flex-wrap">
         {techStack.map(tech => (
-          <Button size='medium'>
+          <Button size='medium' border={true} key={tech}>
             {tech}
           </Button>
         ))}

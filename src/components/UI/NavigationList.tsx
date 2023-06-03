@@ -9,7 +9,7 @@ const NavigationList: React.FC<Props> = ({onClose}) => {
     <ul className="flex text-center basis-1/2 justify-between flex-col [&>li]:my-1 [&>li>a]:h-14 [&>*]:md:my-0 border-solid border-neutral-400 bg-neutral-600 [&>li>a]:flex [&>li>a]:justify-center [&>li>a]:items-center [&>li>a]:w-full">
       <li className="hover:underline transition-all hover:scale-110">
         <NavLink
-          to="/"
+          to="/Portfolio/"
           onClick={onClose}
           className={({ isActive }) =>
             isActive
@@ -22,7 +22,7 @@ const NavigationList: React.FC<Props> = ({onClose}) => {
       </li>
       <li className="hover:underline transition-all hover:scale-110">
         <NavLink
-          to="/about"
+          to="/Portfolio/about"
           onClick={onClose}
           className={({ isActive }) =>
             isActive
@@ -35,7 +35,7 @@ const NavigationList: React.FC<Props> = ({onClose}) => {
       </li>
       <li className="hover:underline transition-all hover:scale-110">
         <NavLink
-          to="/projects"
+          to="/Portfolio/projects"
           onClick={onClose}
           className={({ isActive }) =>
             isActive
@@ -48,7 +48,7 @@ const NavigationList: React.FC<Props> = ({onClose}) => {
       </li>
       <li className="hover:underline transition-all hover:scale-110">
         <NavLink
-          to="/contact"
+          to="/Portfolio/contact"
           onClick={onClose}
           className={({ isActive }) =>
             isActive

@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { useMediaQuery } from '@react-hook/media-query';
 import NavigationList from './NavigationList';
-import Button from './Button';
+import Button from '../elements/Button';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,23 +24,24 @@ const NavBar = () => {
 
   return (
     <nav className="border-solid">
-      <div className="flex justify-between py-4 px-6 md:px-12 text-center relative z-20 border-neutral-400 bg-neutral-600">
+      <div className="flex justify-between py-4 px-6 md:px-12 text-center relative z-5 border-neutral-400 bg-neutral-600">
         <Link to="/" className="font-bold text-lg flex align-middle p-2">
           Sebastian Laskowski
         </Link>
         <div className="hidden md:flex basis-1/2 lg:basis-1/3 justify-between flex-col md:flex-row [&>li]:my-auto">
           {[
-            { to: '/', label: 'Home' },
-            { to: '/about', label: 'About' },
-            { to: '/projects', label: 'Projects' },
-            { to: '/contact', label: 'Contact' },
+            { to: '/Portfolio/', label: 'Home' },
+            { to: '/Portfolio/about', label: 'About' },
+            { to: '/Portfolio/projects', label: 'Projects' },
+            { to: '/Portfolio/contact', label: 'Contact' },
           ].map(({ to, label }) => (
               <NavLink
               to={to}
+              key={to}
               className={({ isActive }) =>
                 isActive
-                  ? ` underline `
-                  : ` `
+                  ? ` my-auto`
+                  : ` my-auto`
                 }
             >
               <Button size={'big'}>

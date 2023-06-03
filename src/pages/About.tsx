@@ -15,6 +15,17 @@ const AboutPage: React.FC = () => {
         { title: 'Research and development' },
       ],
     },
+    {
+      jobTitle: 'Front-end Developer',
+      jobDescription: 'in Centrum Respo (05.2023—present)',
+      responsibilities: [
+        { title: 'Web development' },
+        { title: 'Mobile application development' },
+        { title: 'Technologies (React, React Native, PHP)' },
+        { title: 'Collaboration in design' },
+      ],
+    },
+    
   ];
 
   const jobsDecription = (
@@ -26,18 +37,18 @@ const AboutPage: React.FC = () => {
   ) => {
     return (
       <>
-        {jobs.map(job => {
+        {jobs.map(jobs => {
           return (
             <>
               <h4 className="font-bold py-2">
-                {jobs[0].jobTitle}
+                {jobs.jobTitle}
                 <span className="font-normal">
-                  &nbsp;{jobs[0].jobDescription}
+                  &nbsp;{jobs.jobDescription}
                 </span>
               </h4>
               <p>Responsibilities:</p>
               <ul className="[&>li]:pl-4 list-none [&>li]:before:pr-2 [&>li]:before:content-['✅']">
-                {jobs[0].responsibilities.map(responsibility => {
+                {jobs.responsibilities.map(responsibility => {
                   return <li>{responsibility.title}</li>;
                 })}
               </ul>

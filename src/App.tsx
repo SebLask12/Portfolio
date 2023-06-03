@@ -11,7 +11,7 @@ const ContactPage = lazy(() => import('./pages/Contact'));
 
 const routes = [
   {
-    path: '/',
+    path: '/Portfolio/',
     element: <RootLayout />,
     children: [
       {
@@ -23,7 +23,7 @@ const routes = [
         ),
       },
       {
-        path: '/about',
+        path: '/Portfolio/about',
         element: (
           <Suspense>
             <AboutPage />
@@ -31,7 +31,7 @@ const routes = [
         ),
       },
       {
-        path: '/projects',
+        path: '/Portfolio/projects',
         element: (
           <Suspense>
             <ProjectsLayout />
@@ -39,7 +39,7 @@ const routes = [
         ),
       },
       {
-        path: '/contact',
+        path: '/Portfolio/contact',
         element: (
           <Suspense fallback={<p>Loading...</p>}>
             <ContactPage />
