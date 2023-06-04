@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import './index.css';
 import RootLayout from './components/UI/RootLayout';
+import AdminPage from './pages/Admin';
 
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
@@ -46,6 +47,14 @@ const routes = [
           </Suspense>
         ),
       },
+      {
+        path: '/Portfolio/admin',
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <AdminPage/>
+          </Suspense>
+        )
+      }
     ],
   },
 ];

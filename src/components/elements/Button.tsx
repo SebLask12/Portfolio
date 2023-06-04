@@ -4,6 +4,7 @@ type Props = {
   children: ReactNode;
   size: 'big' | 'medium' | 'small';
   border?: boolean;
+  onClick?: () => void;
 };
 
 const defaultProps: Props = {
@@ -12,7 +13,7 @@ const defaultProps: Props = {
   border: false,
 };
 
-const Button = ({ children, size, border }: Props) => {
+const Button = ({ children, size, border, onClick }: Props) => {
   let style = ``;
   if (size === 'big') style = `py-2 px-4`;
   else if (size === 'medium') style = `py-1 px-2`;
@@ -23,6 +24,7 @@ const Button = ({ children, size, border }: Props) => {
   return (
     <button
       className={` hover:bg-green-400 border-green-400 rounded-3xl text-white transition-all active:scale-95 hover:text-black ${style}`}
+      onClick={onClick}
     >
       {children}
     </button>
