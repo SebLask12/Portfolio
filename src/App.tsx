@@ -11,7 +11,7 @@ const ContactPage = lazy(() => import('./pages/Contact'));
 
 const routes = [
   {
-    path: '/Portfolio/',
+    path: '/Portfolio',
     element: <RootLayout />,
     children: [
       {

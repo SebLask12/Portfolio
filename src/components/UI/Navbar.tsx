@@ -25,12 +25,12 @@ const NavBar = () => {
   return (
     <nav className="border-solid">
       <div className="flex justify-between py-4 px-6 md:px-12 text-center relative z-5 border-neutral-400 bg-neutral-600">
-        <Link to="/" className="font-bold text-lg flex align-middle p-2">
+        <Link to="/Portfolio" className="font-bold text-lg flex align-middle p-2">
           Sebastian Laskowski
         </Link>
         <div className="hidden md:flex basis-1/2 lg:basis-1/3 justify-between flex-col md:flex-row [&>li]:my-auto">
           {[
-            { to: '/Portfolio/', label: 'Home' },
+            { to: '/Portfolio', label: 'Home' },
             { to: '/Portfolio/about', label: 'About' },
             { to: '/Portfolio/projects', label: 'Projects' },
             { to: '/Portfolio/contact', label: 'Contact' },
