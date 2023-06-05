@@ -25,7 +25,10 @@ const NavBar = () => {
   return (
     <nav className="border-solid">
       <div className="flex justify-between py-4 px-6 md:px-12 text-center relative z-5 border-neutral-400 bg-neutral-600">
-        <Link to="/Portfolio" className="font-bold text-lg flex align-middle p-2">
+        <Link
+          to="/Portfolio"
+          className="font-bold text-lg flex align-middle p-2"
+        >
           Sebastian Laskowski
         </Link>
         <div className="hidden md:flex basis-1/2 lg:basis-1/3 justify-between flex-col md:flex-row [&>li]:my-auto">
@@ -34,20 +37,15 @@ const NavBar = () => {
             { to: '/Portfolio/about', label: 'About' },
             { to: '/Portfolio/projects', label: 'Projects' },
             { to: '/Portfolio/contact', label: 'Contact' },
+            { to: '/Portfolio/auth?mode=login', label: 'Auth' },
           ].map(({ to, label }) => (
-              <NavLink
+            <NavLink
               to={to}
               key={to}
-              className={({ isActive }) =>
-                isActive
-                  ? ` my-auto`
-                  : ` my-auto`
-                }
+              className={({ isActive }) => (isActive ? ` my-auto` : ` my-auto`)}
             >
-              <Button size={'big'}>
-                {label}
-              </Button>
-              </NavLink>
+              <Button size={'big'}>{label}</Button>
+            </NavLink>
           ))}
         </div>
         <div className="md:hidden">

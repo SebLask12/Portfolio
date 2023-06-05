@@ -5,6 +5,8 @@ type Props = {
   size: 'big' | 'medium' | 'small';
   border?: boolean;
   onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
+  className?: string;
 };
 
 const defaultProps: Props = {
@@ -13,7 +15,14 @@ const defaultProps: Props = {
   border: false,
 };
 
-const Button = ({ children, size, border, onClick }: Props) => {
+const Button = ({
+  children,
+  size,
+  border,
+  onClick,
+  type,
+  className,
+}: Props) => {
   let style = ``;
   if (size === 'big') style = `py-2 px-4`;
   else if (size === 'medium') style = `py-1 px-2`;
@@ -23,8 +32,9 @@ const Button = ({ children, size, border, onClick }: Props) => {
 
   return (
     <button
-      className={` hover:bg-green-400 border-green-400 rounded-3xl text-white transition-all active:scale-95 hover:text-black ${style}`}
+      className={` hover:bg-green-400 border-green-400 rounded-3xl text-white transition-all active:scale-95 hover:text-black ${style} ${className}`}
       onClick={onClick}
+      type={type}
     >
       {children}
     </button>

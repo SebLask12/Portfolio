@@ -17,7 +17,7 @@ const useFetchMessage = async (message: Message) => {
       requestOptions
     );
     if (!response.ok) {
-      throw new Error('Problem with fetch data');
+      throw new Error(`${response.status} ${response.statusText}`);
     }
     const data = await response.json();
     return {data};
