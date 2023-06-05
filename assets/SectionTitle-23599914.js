@@ -1,0 +1,1 @@
+import{j as r}from"./index-130a3a64.js";const n=({title:e,style:t,children:o})=>r("h3",{className:`mb-2 text-xl font-bold text-green-400 inline-block hover:scale-110 transition-all hover:bg-neutral-700 hover:rotate-3 ${t}`,children:[e,o]});export{n as S};
