@@ -1,1 +1,0 @@
-import{r as e,a as n,C as u}from"./index-130a3a64.js";const f=({children:s})=>{const[o,r]=e.useState(!1);e.useEffect(()=>{r(!0)},[]);const t=e.useRef(null);return n(u,{classNames:"fade",timeout:2e3,nodeRef:t,in:o,unmountOnExit:!0,mountOnEnter:!0,children:n("div",{ref:t,children:s})})};export{f as F};
