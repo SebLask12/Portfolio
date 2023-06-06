@@ -13,6 +13,7 @@
   "dependencies": {
     "@react-hook/media-query": "^1.1.1",
     "@types/react-transition-group": "^4.4.5",
+    "firebase": "^9.22.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.10.0",
