@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  User
 } from 'firebase/auth';
 import { auth } from '../../firebase';
 
@@ -21,7 +22,7 @@ const AuthForm = () => {
   const login = 'admin@admin.pl';
   const pass = 'admin';
   const navigate = useNavigate();
-  const [authUser, setAuthUser] = useState(null);
+  const [authUser, setAuthUser] = useState<User | null>(null);
 
   const ref = useRef();
 
