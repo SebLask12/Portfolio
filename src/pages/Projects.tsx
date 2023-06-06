@@ -2,9 +2,18 @@ import SectionTitle from '../components/UI/SectionTitle';
 
 import ProjectCart from '../components/UI/ProjectCart';
 import FadeInOnMount from '../components/UI/FadeInMount';
+import {
+  RestaurantGithubUrl,
+  RestaurantPreviewUrl,
+  WeatherGithubUrl,
+  WeatherPreviewUrl,
+  PortfolioGithubUrl,
+  PortfolioPreviewUrl,
+} from '../utils/url';
 
 import RestaurantImg from './../assets/RestaurantSite.png';
 import WeatherImg from './../assets/WeatherObserver.png';
+import portfolioSite from './../assets/portfolioSite.png';
 
 const projects = [
   {
@@ -13,8 +22,8 @@ const projects = [
       'This is a website with an offer of a sample restaurant, a project made based on a design. The main technologies used are HTML and Sass.',
     imagePath: RestaurantImg,
     altImage: 'Restaurant preview',
-    linkCode: 'https://github.com/SebLask12/RestaurantSite',
-    linkLivePreview: 'https://seblask12.github.io/RestaurantSite/',
+    linkCode: RestaurantGithubUrl,
+    linkLivePreview: RestaurantPreviewUrl,
     techStack: ['HTML', 'Sass', 'Javascript'],
   },
   {
@@ -23,19 +32,19 @@ const projects = [
       'This is a website made with React technology for observing temperature and humidity on a chart in a desired city.',
     imagePath: WeatherImg,
     altImage: 'Weather Observer Preview',
-    linkCode: 'https://github.com/SebLask12/aplikaja-pogodowa',
-    linkLivePreview: 'https://warm-dodol-729200.netlify.app/',
+    linkCode: WeatherGithubUrl,
+    linkLivePreview: WeatherPreviewUrl,
     techStack: ['HTML', 'CSS', 'React', 'useContext'],
   },
   {
-    title: 'Restaurant',
+    title: 'Portfolio',
     description:
-      'This is a website with an offer of a sample restaurant, a project made based on a design. The main technologies used are HTML and Sass.',
-    imagePath: RestaurantImg,
-    altImage: 'Restaurant preview',
-    linkCode: '#',
-    linkLivePreview: '#',
-    techStack: ['HTML', 'Sass'],
+      'This page was designed and developed by Sebastian Laskowski. Special features: Auth, Routing, Transitions, Fetch etc...',
+    imagePath: portfolioSite,
+    altImage: 'Portfolio site preview',
+    linkCode: PortfolioGithubUrl,
+    linkLivePreview: PortfolioPreviewUrl,
+    techStack: ['HTML', 'React', 'TypeScript', 'Tailwind'],
   },
 ];
 
