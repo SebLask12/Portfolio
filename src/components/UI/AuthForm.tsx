@@ -5,7 +5,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
-  User
+  User,
 } from 'firebase/auth';
 import { auth } from '../../firebase';
 
@@ -19,8 +19,6 @@ const AuthForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const isLogin = searchParams.get('mode') === 'login';
-  const login = 'admin@admin.pl';
-  const pass = 'admin';
   const navigate = useNavigate();
   const [authUser, setAuthUser] = useState<User | null>(null);
 
@@ -74,10 +72,10 @@ const AuthForm = () => {
 
   return (
     <>
-      <SectionTitle>{`${
+      <SectionTitle size='large'>{`${
         isLogin ? 'Log In' : 'Create a new user'
       }`}</SectionTitle>
-      <form onSubmit={handleSubmit} className="flex flex-col mt-6 w-80 mx-auto">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:mt-6 w-full sm:w-80 mx-auto">
         <div className=" flex flex-col items-start text-sm">
           <label htmlFor="email">Email:</label>
           <Input
@@ -119,7 +117,7 @@ const AuthForm = () => {
           </Link>
         </div>
 
-        <Button type="submit" border className=" mx-auto">
+        <Button type="submit" border className=" mx-auto w-full sm:w-80">
           {isLogin ? 'Login' : 'Create new user'}
         </Button>
       </form>

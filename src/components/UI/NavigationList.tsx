@@ -59,6 +59,19 @@ const NavigationList: React.FC<Props> = ({onClose}) => {
           Contact
         </NavLink>
       </li>
+      <li className="hover:underline transition-all hover:scale-110">
+        <NavLink
+          to="/Portfolio/auth"
+          onClick={onClose}
+          className={({ isActive }) =>
+            isActive
+              ? ' text-green-300 hover:text-green-400'
+              : 'text-white hover:text-white'
+          }
+        >
+          Auth
+        </NavLink>
+      </li>
     </ul>
   );
 };
