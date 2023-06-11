@@ -7,7 +7,7 @@ type Props = {
 
 const Card: React.FC<Props> = ({ children, style }) => {
   return (
-    <div className={`text-center p-6 flex flex-col ${style}`}>{children}</div>
+    <div className={`text-center p-6  ${style}`}>{children}</div>
   );
 };
 export default Card;

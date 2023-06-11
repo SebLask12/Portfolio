@@ -1,14 +1,14 @@
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import Techstack from '../components/UI/Techstack';
 import FadeInOnMount from '../components/UI/FadeInMount';
+import Card from '../components/UI/Card';
 
 import Profilowe from '../assets/logo_czarne_AI.jpg';
 
 const HomePage: React.FC = () => {
   return (
     <FadeInOnMount>
-      <section>
-        <div className="flex flex-col md:flex-row p-8 justify-center">
+        <Card style="flex flex-col md:flex-row">
           <div className="md:basis-1/2 flex flex-col order-2 md:order-1 pl-0 md:pl-8 items-center md:items-start">
             <h2 className="text-4xl font-bold text-center pt-8 md:pt-0 md:text-left ">
               Front-End React
@@ -31,9 +31,8 @@ const HomePage: React.FC = () => {
               />
             </Suspense>
           </div>
-        </div>
+        </Card>
         <Techstack />
-      </section>
     </FadeInOnMount>
   );
 };

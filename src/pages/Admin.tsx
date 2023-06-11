@@ -3,6 +3,7 @@ import { useState } from 'react';
 import FadeInOnMount from '../components/UI/FadeInMount';
 import SectionTitle from '../components/UI/SectionTitle';
 import Button from '../components/elements/Button';
+import Card from '../components/UI/Card';
 
 interface Post {
   id: string;
@@ -14,6 +15,7 @@ interface Post {
 
 const AdminPage: React.FC = () => {
   const [loadedPost, setLoadedPost] = useState<Post[]>([]);
+  const [name, setName] = useState('');
 
   const get = async () => {
     try {
@@ -52,7 +54,7 @@ const AdminPage: React.FC = () => {
 
   return (
     <FadeInOnMount>
-      <div className="text-center p-6 flex flex-col justify-center">
+      <Card style=" flex flex-col">
         <SectionTitle title="Admin" />
         <Button size="medium" border onClick={downloadPost}>
           Download post...
@@ -70,7 +72,7 @@ const AdminPage: React.FC = () => {
             </div>
           ))}
         </section>
-      </div>
+      </Card>
     </FadeInOnMount>
   );
 };

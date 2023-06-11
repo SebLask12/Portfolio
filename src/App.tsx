@@ -1,8 +1,12 @@
 import { lazy, Suspense } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom';
 import './App.css';
 import './index.css';
 import RootLayout from './components/UI/RootLayout';
+import { tokenLoader } from './utils/getToken';
 
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
@@ -15,6 +19,7 @@ const routes = [
   {
     path: '/Portfolio',
     element: <RootLayout />,
+    loader: tokenLoader,
     children: [
       {
         index: true,
@@ -25,7 +30,7 @@ const routes = [
         ),
       },
       {
-        path: '/Portfolio/about',
+        path: 'about',
         element: (
           <Suspense>
             <AboutPage />
@@ -33,7 +38,7 @@ const routes = [
         ),
       },
       {
-        path: '/Portfolio/projects',
+        path: 'projects',
         element: (
           <Suspense>
             <ProjectsLayout />
@@ -41,7 +46,7 @@ const routes = [
         ),
       },
       {
-        path: '/Portfolio/contact',
+        path: 'contact',
         element: (
           <Suspense fallback={<p>Loading...</p>}>
             <ContactPage />
@@ -49,7 +54,7 @@ const routes = [
         ),
       },
       {
-        path: '/Portfolio/admin',
+        path: 'admin',
         element: (
           <Suspense fallback={<p>Loading...</p>}>
             <AdminPage />
@@ -57,7 +62,7 @@ const routes = [
         ),
       },
       {
-        path: '/Portfolio/auth',
+        path: 'auth',
         element: (
           <Suspense fallback={<p>Loading...</p>}>
             <AuthPage />

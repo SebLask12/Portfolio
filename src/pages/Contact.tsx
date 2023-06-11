@@ -2,6 +2,7 @@ import SectionTitle from '../components/UI/SectionTitle';
 import ContactMethod from '../components/UI/ContactMethod';
 import FormMessage from '../components/UI/FormMessage';
 import FadeInOnMount from '../components/UI/FadeInMount';
+import Card from '../components/UI/Card';
 
 import MailImg from '../assets/Mail.svg';
 import PhoneImg from '../assets/Phone.svg';
@@ -10,7 +11,7 @@ import LocationImg from '../assets/location.svg';
 const ContactPage: React.FC = () => {
   return (
     <FadeInOnMount>
-      <div className="text-center p-6">
+      <Card>
         <SectionTitle title="Contact Form" />
         <p>Do you have any questions? Please contact:</p>
         <FormMessage />
@@ -34,7 +35,7 @@ const ContactPage: React.FC = () => {
             info="Radom, Poland"
           />
         </div>
-      </div>
+      </Card>
     </FadeInOnMount>
   );
 };

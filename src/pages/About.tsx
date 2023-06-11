@@ -1,8 +1,15 @@
 import SectionTitle from '../components/UI/SectionTitle';
 import FadeInOnMount from '../components/UI/FadeInMount';
+import Card from '../components/UI/Card';
+
+type Jobs = {
+  jobTitle: string;
+  jobDescription: string;
+  responsibilities: { title: string }[];
+}
 
 const AboutPage: React.FC = () => {
-  const jobs = [
+  const jobs: Jobs[] = [
     {
       jobTitle: 'Programmer PLC, C , C++',
       jobDescription: 'in ROMER PP. (04.2022—present, 1 year)',
@@ -29,11 +36,7 @@ const AboutPage: React.FC = () => {
   ];
 
   const jobsDecription = (
-    jobs: {
-      jobTitle: string;
-      jobDescription: string;
-      responsibilities: { title: string }[];
-    }[]
+    jobs: Jobs[]
   ) => {
     return (
       <>
@@ -61,7 +64,7 @@ const AboutPage: React.FC = () => {
 
   return (
     <FadeInOnMount>
-      <section className="text-center p-6">
+      <Card>
         <SectionTitle title="About Me" />
         <p>
           As a self-taught frontend developer and IT technician, I have acquired
@@ -103,7 +106,7 @@ const AboutPage: React.FC = () => {
           <div className="w-100 h-1 bg-black rounded-xl" />
           ...
         </div>
-      </section>
+      </Card>
     </FadeInOnMount>
   );
 };

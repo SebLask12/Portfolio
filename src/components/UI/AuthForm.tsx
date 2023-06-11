@@ -1,13 +1,15 @@
-import { useState, useRef, useEffect } from 'react';
-import { Form, Link, useSearchParams, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
+  updateProfile,
+  getAuth,
   signOut,
-  User,
 } from 'firebase/auth';
 import { auth } from '../../firebase';
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
+import { authActions } from '../../store/auth';
 
 import Button from '../elements/Button';
 import Input from '../elements/Input';
@@ -17,19 +19,19 @@ const AuthForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const isLogin = searchParams.get('mode') === 'login';
-  const navigate = useNavigate();
-  const [authUser, setAuthUser] = useState<User | null>(null);
+  const dispatch = useAppDispatch();
 
-  const ref = useRef();
+  const isAuth = useAppSelector(state => state.auth.isAuthenticated);
+  const name = useAppSelector(state => state.auth.name);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!isLogin) {
       createUserWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
-          console.log(userCredential);
+          dispatch(authActions.login(email));
         })
         .catch(error => {
           console.log(error);
@@ -38,6 +40,7 @@ const AuthForm = () => {
       signInWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
           console.log(userCredential);
+          dispatch(authActions.login(email));
         })
         .catch(error => {
           console.log(error);
@@ -47,20 +50,6 @@ const AuthForm = () => {
     setEmail('');
     setPassword('');
   };
-
-  useEffect(() => {
-    const listen = onAuthStateChanged(auth, user => {
-      if (user) {
-        setAuthUser(user);
-      } else {
-        setAuthUser(null);
-      }
-    });
-
-    return () => {
-      listen();
-    };
-  }, []);
 
   const userSignOut = () => {
     signOut(auth)
@@ -72,10 +61,13 @@ const AuthForm = () => {
 
   return (
     <>
-      <SectionTitle size='large'>{`${
+      <SectionTitle size="large" style=" w-auto mx-auto">{`${
         isLogin ? 'Log In' : 'Create a new user'
       }`}</SectionTitle>
-      <form onSubmit={handleSubmit} className="flex flex-col sm:mt-6 w-full sm:w-80 mx-auto">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col sm:mt-6 w-full sm:w-80 mx-auto"
+      >
         <div className=" flex flex-col items-start text-sm">
           <label htmlFor="email">Email:</label>
           <Input
@@ -122,9 +114,9 @@ const AuthForm = () => {
         </Button>
       </form>
       <div>
-        {authUser ? (
+        {isAuth ? (
           <>
-            <p>{`Signed In as ${authUser.email}`}</p>
+            <p>{`Signed In as ${name}`}</p>
             <button onClick={userSignOut}>Sign Out</button>
           </>
         ) : (

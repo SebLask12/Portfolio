@@ -15,7 +15,17 @@ import RestaurantImg from './../assets/RestaurantSite.png';
 import WeatherImg from './../assets/WeatherObserver.png';
 import portfolioSite from './../assets/portfolioSite.png';
 
-const projects = [
+type Projects = {
+  title: string;
+  description: string;
+  imagePath: string;
+  altImage: string;
+  linkCode: string;
+  linkLivePreview: string;
+  techStack: string[];
+};
+
+const projects: Projects[] = [
   {
     title: 'Restaurant',
     description:
