@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import Techstack from '../components/UI/Techstack';
 import FadeInOnMount from '../components/UI/FadeInMount';
 import Card from '../components/UI/Card';
+import LoadingAnim from '../components/elements/LoadingAnim';
 
 import Profilowe from '../assets/logo_czarne_AI.jpg';
 
@@ -24,7 +25,7 @@ const HomePage: React.FC = () => {
             </p>
           </div>
           <div className="basis-1/2 flex justify-center order-1 md:order-2">
-            <Suspense fallback={<p>Loading...</p>}>
+            <Suspense fallback={<LoadingAnim/>}>
               <img
                 src={Profilowe}
                 className=" rounded-md h-[12rem] object-cover border-solid border-green-400 border-4 hover:scale-110 transition-transform"

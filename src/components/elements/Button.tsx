@@ -32,7 +32,7 @@ const Button = ({
 
   return (
     <button
-      className={` hover:bg-green-400 border-green-400 rounded-3xl text-white transition-all active:scale-95 hover:text-black ${style} ${className}`}
+      className={` hover:bg-green-400 border-green-400 rounded-3xl transition-all active:scale-95 hover:text-black ${style} ${className}`}
       onClick={onClick}
       type={type}
     >

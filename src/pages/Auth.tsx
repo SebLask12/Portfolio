@@ -1,16 +1,19 @@
+import { useEffect } from 'react';
 import AuthForm from '../components/UI/AuthForm';
 import Card from '../components/UI/Card';
-import SectionTitle from '../components/UI/SectionTitle';
 import { useAppSelector } from '../hooks/reduxHooks';
-import Account from '../components/UI/Account';
-
+import { useNavigate } from 'react-router';
 const AuthPage = () => {
   const isAuth = useAppSelector(state => state.auth.isAuthenticated);
-  const displayName = useAppSelector(state => state.auth.name);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuth) navigate('../profil');
+  }, [isAuth]);
+
   return (
     <Card style=" w-full flex flex-col">
-      {isAuth && <Account/>}
-      {!isAuth && <AuthForm />}
+      <AuthForm />
     </Card>
   );
 };

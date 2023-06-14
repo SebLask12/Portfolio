@@ -1,27 +1,33 @@
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth';
 import { auth } from '../firebase';
-import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
-import { authActions } from '../store/auth';
 
 type CreateUser = {
+  email: string;
+  password: string;
+  name: string;
+};
+
+const useCreateUser = (
     email: string,
     password: string,
-    name: string,
-}
-
-const useCreateUser = ({email,password,name}: CreateUser) => {
-    const dispatch = useAppDispatch();
-    createUserWithEmailAndPassword(auth, email, password)
-        .then(userCredential => {
-            const user = auth.currentUser;
-            updateProfile(user, {
-                displayName: name,
-              })
-            dispatch(authActions.login(name));
-        })
-        .catch(error => {
-            console.log(error);
+    name: string
+  ): Promise<{ userCredential?: any; error?: any }> => {
+  return createUserWithEmailAndPassword(auth, email, password)
+    .then(userCredential => {
+      const user = auth.currentUser;
+      if (user)
+        updateProfile(user, {
+          displayName: name,
         });
+      return { userCredential };
+    })
+    .catch(error => {
+      console.log(error);
+      return { error };
+    });
 };
 
 export default useCreateUser;

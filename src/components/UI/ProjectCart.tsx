@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import ChainImg from './../../assets/attach.svg';
 import GithubImg from './../../assets/github-mark-white.svg';
 import Button from '../elements/Button';
+import LoadingAnim from '../elements/LoadingAnim';
 
 const LazyImage = lazy(() => import('../elements/Img'));
 
@@ -28,7 +29,7 @@ const ProjectCart: React.FC<Props> = ({
     <li className="basis-2/5 rounded-2xl bg-neutral-600 shadow-2xl flex flex-col justify-between hover:scale-105 transition-all">
       <div className="h-[15rem] overflow-hidden">
         <a href={linkLivePreview} className="flex items-center justify-center">
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingAnim/>}>
             <LazyImage
               src={imagePath}
               alt={altImage}

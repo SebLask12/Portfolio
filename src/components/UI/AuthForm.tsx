@@ -1,73 +1,92 @@
-import { useState } from 'react';
-import { Link, useSearchParams, useNavigate } from 'react-router-dom';
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  updateProfile,
-  getAuth,
-  signOut,
-} from 'firebase/auth';
-import { auth } from '../../firebase';
-import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
+import { useState} from 'react';
+import { Link, useSearchParams, useNavigate, Form } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks/reduxHooks';
 import { authActions } from '../../store/auth';
+import useCreateUser from '../../hooks/useCreateUser';
+import useSignInUser from '../../hooks/useLoginUser';
 
 import Button from '../elements/Button';
 import Input from '../elements/Input';
 import SectionTitle from './SectionTitle';
+import LoadingAnim from '../elements/LoadingAnim';
+import Card from './Card';
 
 const AuthForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [invalidPass, setInvalidPass] = useState(false);
   const [searchParams] = useSearchParams();
   const isLogin = searchParams.get('mode') === 'login';
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  const isAuth = useAppSelector(state => state.auth.isAuthenticated);
-  const name = useAppSelector(state => state.auth.name);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (!isLogin) {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then(userCredential => {
-          dispatch(authActions.login(email));
-        })
-        .catch(error => {
-          console.log(error);
-        });
+      setIsLoading(true);
+
+      const { userCredential, error } = await useCreateUser(
+        email,
+        password,
+        name
+      );
+      setIsLoading(false);
+      if (userCredential) {
+        dispatch(authActions.login(name));
+        navigate('../profil');
+      }
+
+      if (error) {
+        setEmail('');
+        setPassword('');
+      }
     } else if (isLogin) {
-      signInWithEmailAndPassword(auth, email, password)
-        .then(userCredential => {
-          console.log(userCredential);
-          dispatch(authActions.login(email));
-        })
-        .catch(error => {
-          console.log(error);
-        });
+      setIsLoading(true);
+
+      const { userCredential, error } = await useSignInUser(email, password);
+      setIsLoading(false);
+      if (userCredential) {
+        dispatch(authActions.login(userCredential.user.displayName));
+        navigate('../profil');
+      }
+
+      if (error) {
+        setEmail('');
+        setPassword('');
+        setInvalidPass(true);
+      }
     }
 
     setEmail('');
     setPassword('');
   };
 
-  const userSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        console.log('sign out successful');
-      })
-      .catch(error => console.log(error));
-  };
-
   return (
     <>
+      {isLoading && <LoadingAnim className="mx-auto" />}
       <SectionTitle size="large" style=" w-auto mx-auto">{`${
         isLogin ? 'Log In' : 'Create a new user'
       }`}</SectionTitle>
-      <form
+      <Form
         onSubmit={handleSubmit}
         className="flex flex-col sm:mt-6 w-full sm:w-80 mx-auto"
       >
+        {isLogin ? null : (
+          <div className=" flex flex-col items-start text-sm">
+            <label htmlFor="fname">Name:</label>
+            <Input
+              type="text"
+              id="fname"
+              value={name}
+              onChange={e => setName(e.target.value)}
+              required
+            />
+          </div>
+        )}
         <div className=" flex flex-col items-start text-sm">
           <label htmlFor="email">Email:</label>
           <Input
@@ -100,29 +119,23 @@ const AuthForm = () => {
             />
           </div>
         )}
-        <div className="flex align-start">
+        {invalidPass && (
+          <div className="flex align-start text-sm text-red-600 -mt-4 mb-2">
+            Wrong e-mail or password!
+          </div>
+        )}
+        <div className="flex align-start mb-4">
           <Link
-            className=" text-sm -mt-2"
+            className=" text-sm -mt-2 text-green-300 hover:text-green-400"
             to={`?mode=${isLogin ? 'signup' : 'login'}`}
           >
             {isLogin ? 'Create new user' : 'Login'}
           </Link>
         </div>
-
         <Button type="submit" border className=" mx-auto w-full sm:w-80">
           {isLogin ? 'Login' : 'Create new user'}
         </Button>
-      </form>
-      <div>
-        {isAuth ? (
-          <>
-            <p>{`Signed In as ${name}`}</p>
-            <button onClick={userSignOut}>Sign Out</button>
-          </>
-        ) : (
-          <p>Signed Out</p>
-        )}
-      </div>
+      </Form>
     </>
   );
 };

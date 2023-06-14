@@ -1,12 +1,10 @@
 import { lazy, Suspense } from 'react';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import './index.css';
 import RootLayout from './components/UI/RootLayout';
 import { tokenLoader } from './utils/getToken';
+import LoadingAnim from './components/elements/LoadingAnim';
 
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
@@ -14,6 +12,7 @@ const ProjectsLayout = lazy(() => import('./pages/Projects'));
 const ContactPage = lazy(() => import('./pages/Contact'));
 const AdminPage = lazy(() => import('./pages/Admin'));
 const AuthPage = lazy(() => import('./pages/Auth'));
+const ProfilPage = lazy(() => import('./pages/Profil'));
 
 const routes = [
   {
@@ -24,7 +23,7 @@ const routes = [
       {
         index: true,
         element: (
-          <Suspense>
+          <Suspense fallback={<LoadingAnim/>}>
             <HomePage />
           </Suspense>
         ),
@@ -32,7 +31,7 @@ const routes = [
       {
         path: 'about',
         element: (
-          <Suspense>
+          <Suspense fallback={<LoadingAnim/>}>
             <AboutPage />
           </Suspense>
         ),
@@ -40,7 +39,7 @@ const routes = [
       {
         path: 'projects',
         element: (
-          <Suspense>
+          <Suspense fallback={<LoadingAnim/>}>
             <ProjectsLayout />
           </Suspense>
         ),
@@ -48,7 +47,7 @@ const routes = [
       {
         path: 'contact',
         element: (
-          <Suspense fallback={<p>Loading...</p>}>
+          <Suspense fallback={<LoadingAnim/>}>
             <ContactPage />
           </Suspense>
         ),
@@ -56,7 +55,7 @@ const routes = [
       {
         path: 'admin',
         element: (
-          <Suspense fallback={<p>Loading...</p>}>
+          <Suspense fallback={<LoadingAnim/>}>
             <AdminPage />
           </Suspense>
         ),
@@ -64,8 +63,16 @@ const routes = [
       {
         path: 'auth',
         element: (
-          <Suspense fallback={<p>Loading...</p>}>
+          <Suspense fallback={<LoadingAnim/>}>
             <AuthPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'profil',
+        element: (
+          <Suspense fallback={<LoadingAnim/>}>
+            <ProfilPage />
           </Suspense>
         ),
       },
