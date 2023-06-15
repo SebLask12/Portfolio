@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import { Link, useSearchParams, useNavigate, Form } from 'react-router-dom';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { authActions } from '../../store/auth';
@@ -9,7 +9,6 @@ import Button from '../elements/Button';
 import Input from '../elements/Input';
 import SectionTitle from './SectionTitle';
 import LoadingAnim from '../elements/LoadingAnim';
-import Card from './Card';
 
 const AuthForm = () => {
   const [email, setEmail] = useState('');
@@ -41,8 +40,10 @@ const AuthForm = () => {
       }
 
       if (error) {
+        setName('')
         setEmail('');
         setPassword('');
+        setConfirmPassword('');
       }
     } else if (isLogin) {
       setIsLoading(true);
@@ -120,16 +121,22 @@ const AuthForm = () => {
           </div>
         )}
         {invalidPass && (
-          <div className="flex align-start text-sm text-red-600 -mt-4 mb-2">
+          <div className="flex text-sm text-red-600 -mt-4 mb-2">
             Wrong e-mail or password!
           </div>
         )}
-        <div className="flex align-start mb-4">
+        <div className="flex mb-4 ">
           <Link
             className=" text-sm -mt-2 text-green-300 hover:text-green-400"
             to={`?mode=${isLogin ? 'signup' : 'login'}`}
           >
-            {isLogin ? 'Create new user' : 'Login'}
+            {isLogin ? (
+              <>
+                Need accout?
+              </>
+            ) : (
+              'Login'
+            )}
           </Link>
         </div>
         <Button type="submit" border className=" mx-auto w-full sm:w-80">

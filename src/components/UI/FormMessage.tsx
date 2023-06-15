@@ -21,7 +21,7 @@ const FormMessage = () => {
     e.preventDefault();
     setIsAdding(true);
     setError(false);
-    
+
     const newPost = {
       name: name,
       email: email,

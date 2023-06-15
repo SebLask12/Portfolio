@@ -7,6 +7,7 @@ import Button from '../elements/Button';
 import { useAppSelector } from '../../hooks/reduxHooks';
 
 import MojeKontoIcon from '../../assets/mojekonto.svg';
+import Hamburger from '../elements/Hamburger';
 
 type Links = {
   to: string;
@@ -37,9 +38,6 @@ const NavBar = () => {
   const onCloseHandler = () => {
     setIsOpen(false);
   };
-
-  const hamburgerLineClasses =
-    'h-[3px] w-6 my-[3px] rounded-full bg-green-400 transition ease transform duration-300';
 
   const toggleHamburger = () => setIsOpen(!isOpen);
 
@@ -79,32 +77,7 @@ const NavBar = () => {
             </NavLink>
           ))}
         </div>
-        <div className="md:hidden flex items-center">
-          <button
-            className="flex flex-col h-10 w-10 border-2 border-green-400 rounded justify-center items-center group focus:outline-none"
-            onClick={toggleHamburger}
-          >
-            <div
-              className={`${hamburgerLineClasses} ${
-                isOpen
-                  ? 'rotate-45 translate-y-[9px] group-hover:opacity-100'
-                  : 'group-hover:opacity-100'
-              }`}
-            />
-            <div
-              className={`${hamburgerLineClasses} ${
-                isOpen ? 'opacity-0' : 'group-hover:opacity-100'
-              }`}
-            />
-            <div
-              className={`${hamburgerLineClasses} ${
-                isOpen
-                  ? '-rotate-45 -translate-y-[9px] group-hover:opacity-100'
-                  : 'group-hover:opacity-100'
-              }`}
-            />
-          </button>
-        </div>
+        <Hamburger onClick={toggleHamburger} isOpen={isOpen} />
       </div>
       <CSSTransition
         unmountOnExit
@@ -115,7 +88,7 @@ const NavBar = () => {
         classNames={{ enter: 'animate-OpenList', exit: 'animate-CloseList' }}
       >
         <div className="overflow-hidden z-10 absolute w-full" ref={nodeRef}>
-          <NavigationList onClose={onCloseHandler} />
+          <NavigationList onClose={onCloseHandler} links={links} />
         </div>
       </CSSTransition>
     </nav>
