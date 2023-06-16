@@ -14,6 +14,7 @@ import {
 import RestaurantImg from './../assets/RestaurantSite.png';
 import WeatherImg from './../assets/WeatherObserver.png';
 import portfolioSite from './../assets/portfolioSite.png';
+import Card from '../components/UI/Card';
 
 type Projects = {
   title: string;
@@ -34,7 +35,7 @@ const projects: Projects[] = [
     altImage: 'Restaurant preview',
     linkCode: RestaurantGithubUrl,
     linkLivePreview: RestaurantPreviewUrl,
-    techStack: ['HTML', 'Sass', 'Javascript'],
+    techStack: ['HTML', 'SCSS', 'Javascript','Responsive'],
   },
   {
     title: 'Weather Observer',
@@ -61,25 +62,27 @@ const projects: Projects[] = [
 const ProjectsLayout: React.FC = () => {
   return (
     <FadeInOnMount>
-      <section className="text-center p-6">
-        <SectionTitle title="Portfolio" />
-        <br />
-        Each project is a unique piece of development 🧩
-        <ul className="flex flex-col md:flex-row md:flex-wrap text-center justify-around gap-12 md:gap-6 mt-6">
-          {projects.map((project, index) => (
-            <ProjectCart
-              key={index}
-              title={project.title}
-              description={project.description}
-              imagePath={project.imagePath}
-              altImage={project.altImage}
-              linkCode={project.linkCode}
-              linkLivePreview={project.linkLivePreview}
-              techStack={project.techStack}
-            />
-          ))}
-        </ul>
-      </section>
+      <Card>
+        <section className="text-center p-6">
+          <SectionTitle title="Portfolio" />
+          <br />
+          Each project is a unique piece of development 🧩
+          <ul className="flex flex-col md:flex-row md:flex-wrap text-center justify-around gap-12 md:gap-6 mt-6">
+            {projects.map((project, index) => (
+              <ProjectCart
+                key={index}
+                title={project.title}
+                description={project.description}
+                imagePath={project.imagePath}
+                altImage={project.altImage}
+                linkCode={project.linkCode}
+                linkLivePreview={project.linkLivePreview}
+                techStack={project.techStack}
+              />
+            ))}
+          </ul>
+        </section>
+      </Card>
     </FadeInOnMount>
   );
 };

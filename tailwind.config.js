@@ -6,7 +6,7 @@ export default {
       animation: {
         'move-up': 'moveUp .2s ease-in-out forwards',
         'scale-up': 'scaleUp .2s ease-in-out forwards',
-        OpenList: 'openList .5s ease-in-out forwards',
+        OpenList: 'openList .4s ease-in-out forwards',
         CloseList: 'closeList .5s ease-in-out forwards',
       },
       keyframes: {
@@ -20,21 +20,21 @@ export default {
         },
         openList: {
           '0%': {
-            // opacity: '0',
+            opacity: '0',
             transform: 'translateY(-100%)',
           },
           '100%': {
-            // opacity:'1',
+            opacity:'1',
             transform: 'translateY(0)',
           },
         },
         closeList: {
           '0%': {
-            // opacity:'1',
+            opacity:'1',
             transform: 'translateY(0)',
           },
           '100%': {
-            // opacity:'0',
+            opacity:'0',
             transform: 'translateY(-100%)',
           },
         },

@@ -50,19 +50,24 @@ const Account = () => {
   return (
     <>
       <SectionTitle title={`Hi, ${displayName}`} />
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
+      <form onSubmit={handleSubmit} className='flex flex-col'>
+        <label htmlFor="name">
+          Change name:
+        </label>
         <input
           id="name"
           type="name"
           value={name}
+          placeholder="Write your new Name"
+          className={`
+          w-full px-3 py-2 mb-4 leading-tight border-2 rounded shadow appearance-none focus:outline-none focus:shadow-outline`}
           onChange={e => setName(e.target.value)}
         />
-        <Button type="submit">Change name</Button>
-        <Button type="button" onClick={onSignOut}>
-          Sign out
-        </Button>
+        <Button type="submit" border>Change name</Button>
       </form>
+      <Button type="button" onClick={onSignOut} className='mt-5' border>
+        Sign out
+      </Button>
     </>
   );
 };
